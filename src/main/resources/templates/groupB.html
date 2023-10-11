@@ -64,7 +64,7 @@
                     <div class="removeList" th:unless="${#lists.isEmpty(session.ignoredgenrelist)}">
                         <h1>Ignored genres</h1>
                         <form th:each="genre, rowStat : ${session.ignoredgenrelist}" th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
-                            <input type="hidden" name="action" value="removegenre"/>
+                            <input type="hidden" name="action" value="removeignoregenre"/>
                             <input type="hidden" name="id" th:value="${rowStat.index}"/>
                             <input type="hidden" name="name" th:value="${genre}"/>
                             <button type="submit" th:text="${genre}">Remove</button>
