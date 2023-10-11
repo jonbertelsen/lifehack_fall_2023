@@ -20,9 +20,9 @@ public class GroupFMapper {
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
                     int d_id = rs.getInt("d_id");
-                    String name = rs.getString("name");
+                    String d_name = rs.getString("d_name");
                     int sugar = rs.getInt("sugar");
-                    drinksList.add(new GroupFDrinks(d_id, name, sugar));
+                    drinksList.add(new GroupFDrinks(d_id, d_name, sugar));
                 }
             }
 

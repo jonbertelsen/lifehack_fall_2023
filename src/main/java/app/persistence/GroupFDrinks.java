@@ -3,12 +3,12 @@ package app.persistence;
 public class GroupFDrinks {
 
     private int d_id;
-    private String name;
+    private String d_name;
     private double sugar;
 
-    public GroupFDrinks(int d_id, String name, double sugar) {
+    public GroupFDrinks(int d_id, String d_name, double sugar) {
         this.d_id = d_id;
-        this.name = name;
+        this.d_name = d_name;
         this.sugar = sugar;
     }
 
@@ -22,8 +22,8 @@ public class GroupFDrinks {
         return d_id;
     }
 
-    public String getName() {
-        return name;
+    public String getD_name() {
+        return d_name;
     }
 
     public double getSugar() {
@@ -34,7 +34,7 @@ public class GroupFDrinks {
     public String toString() {
         return "GroupFDrinks{" +
                 "d_id=" + d_id +
-                ", name='" + name + '\'' +
+                ", name='" + d_name + '\'' +
                 ", sugar=" + sugar +
                 '}';
     }
