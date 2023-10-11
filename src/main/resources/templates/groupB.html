@@ -4,73 +4,71 @@
 <body>
 
 <div>
+        <header>
+            <img th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png" width="100%"/>
+        </header>
 
-        <div th:replace="~{fragments :: header('MovieRandomizer')}"></div>
-            <header>
-                <img th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png" width="100%"/>
-            </header>
+        <div class="container">
+            <div id="box1">
+                <h2>Edit movie criteria:</h2>
+                <form action="/update" method="post">
+                    <select id="genre" name="genre" size="3">
+                        <option name="action" value="action">Action</option>
+                        <option name="crime" value="crime">Crime</option>
+                        <option name="drama" value="drama">Drama</option>
+                        <option name="fantasy" value="fantasy">Fantasy</option>
+                        <option name="horror" value="horror">Horror</option>
+                        <option name="comedy" value="comedy">Comedy</option>
+                        <option name="romance" value="romance">Romance</option>
+                        <option name="sciencefiction" value="sciencefiction">Science Fiction</option>
+                        <option name="sports" value="sports">Sports</option>
+                        <option name="thriller" value="thriller">Thriller</option>
+                        <option name="mystery" value="mystery">Mystery</option>
+                        <option name="war" value="war">War</option>
+                        <option name="western" value="western">Western</option>
+                    </select>
+                    <button type="submit" formaction="/update">Add</button><br>
+                    <select id="ignoregenre" name="ignoregenre" size="3">
+                        <option name="action" value="action">Action</option>
+                        <option name="crime" value="crime">Crime</option>
+                        <option name="drama" value="drama">Drama</option>
+                        <option name="fantasy" value="fantasy">Fantasy</option>
+                        <option name="horror" value="horror">Horror</option>
+                        <option name="comedy" value="comedy">Comedy</option>
+                        <option name="romance" value="romance">Romance</option>
+                        <option name="sciencefiction" value="sciencefiction">Science Fiction</option>
+                        <option name="sports" value="sports">Sports</option>
+                        <option name="thriller" value="thriller">Thriller</option>
+                        <option name="mystery" value="mystery">Mystery</option>
+                        <option name="war" value="war">War</option>
+                        <option name="western" value="western">Western</option>
+                    </select>
+                    <button type="submit" formaction="/update">Ignore</button>
+                    <input name="randomness" type="range"><br>
+                    <button type="submit" formaction="/update">Save changes</button>
+                </form>
+            </div>
 
-            <div class="container">
-                <div id="box1">
-                    <h2>Edit movie criteria:</h2>
-                    <form action="/update" method="post">
-                        <select id="genre" name="genre" size="3">
-                            <option name="action" value="action">Action</option>
-                            <option name="crime" value="crime">Crime</option>
-                            <option name="drama" value="drama">Drama</option>
-                            <option name="fantasy" value="fantasy">Fantasy</option>
-                            <option name="horror" value="horror">Horror</option>
-                            <option name="comedy" value="comedy">Comedy</option>
-                            <option name="romance" value="romance">Romance</option>
-                            <option name="sciencefiction" value="sciencefiction">Science Fiction</option>
-                            <option name="sports" value="sports">Sports</option>
-                            <option name="thriller" value="thriller">Thriller</option>
-                            <option name="mystery" value="mystery">Mystery</option>
-                            <option name="war" value="war">War</option>
-                            <option name="western" value="western">Western</option>
-                        </select>
-                        <button type="submit" formaction="/update">Add</button><br>
-                        <select id="ignoregenre" name="ignoregenre" size="3">
-                            <option name="action" value="action">Action</option>
-                            <option name="crime" value="crime">Crime</option>
-                            <option name="drama" value="drama">Drama</option>
-                            <option name="fantasy" value="fantasy">Fantasy</option>
-                            <option name="horror" value="horror">Horror</option>
-                            <option name="comedy" value="comedy">Comedy</option>
-                            <option name="romance" value="romance">Romance</option>
-                            <option name="sciencefiction" value="sciencefiction">Science Fiction</option>
-                            <option name="sports" value="sports">Sports</option>
-                            <option name="thriller" value="thriller">Thriller</option>
-                            <option name="mystery" value="mystery">Mystery</option>
-                            <option name="war" value="war">War</option>
-                            <option name="western" value="western">Western</option>
-                        </select>
-                        <button type="submit" formaction="/update">Ignore</button>
-                        <input name="randomness" type="range"><br>
-                        <button type="submit" formaction="/update">Save changes</button>
+            <div class="box2">
+                <div class="removeList" th:unless="${#lists.isEmpty(session.genrelist)}">
+                    <h1>Genres chosen</h1>
+                    <form th:each="genre, rowStat : ${session.genrelist}" th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
+                        <input type="hidden" name="action" value="removegenre"/>
+                        <input type="hidden" name="id" th:value="${rowStat.index}"/>
+                        <input type="hidden" name="name" th:value="${genre}"/>
+                        <button type="submit"><span th:text="${genre}">Error</span><img th:src="@{/images/106830.png}" src="../public/images/106830.png" height="10px" width="10px"/></button>
                     </form>
                 </div>
-
-                <div class="box2">
-                    <div class="removeList" th:unless="${#lists.isEmpty(session.genrelist)}">
-                        <h1>Genres chosen</h1>
-                        <form th:each="genre, rowStat : ${session.genrelist}" th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
-                            <input type="hidden" name="action" value="removegenre"/>
-                            <input type="hidden" name="id" th:value="${rowStat.index}"/>
-                            <input type="hidden" name="name" th:value="${genre}"/>
-                            <button type="submit" th:text="${genre}">Remove</button>
-                        </form>
-                    </div>
-                    <div class="removeList" th:unless="${#lists.isEmpty(session.ignoredgenrelist)}">
-                        <h1>Ignored genres</h1>
-                        <form th:each="genre, rowStat : ${session.ignoredgenrelist}" th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
-                            <input type="hidden" name="action" value="removeignoregenre"/>
-                            <input type="hidden" name="id" th:value="${rowStat.index}"/>
-                            <input type="hidden" name="name" th:value="${genre}"/>
-                            <button type="submit" th:text="${genre}">Remove</button>
-                        </form>
-                    </div>
+                <div class="removeList" th:unless="${#lists.isEmpty(session.ignoredgenrelist)}">
+                    <h1>Ignored genres</h1>
+                    <form th:each="genre, rowStat : ${session.ignoredgenrelist}" th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
+                        <input type="hidden" name="action" value="removeignoregenre"/>
+                        <input type="hidden" name="id" th:value="${rowStat.index}"/>
+                        <input type="hidden" name="name" th:value="${genre}"/>
+                        <button type="submit"><span th:text="${genre}">Error</span><img th:src="@{/images/106830.png}" src="../public/images/106830.png" height="10px" width="10px"/></button>
+                    </form>
                 </div>
+            </div>
 
 
         <div th:replace="~{fragments :: footer}"></div>
