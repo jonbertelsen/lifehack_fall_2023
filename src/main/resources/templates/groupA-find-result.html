@@ -8,6 +8,10 @@
 <div id="page-container">
     <div id="page-content">
         <div th:replace="~{fragments :: header('Find java partner')}"></div>
+
+        <p>Din partner er <span th:text="${#ctx.}"></span></p>
+
+
         <form method="post">
 
             <input type="text" name="username" placeholder="username"/>
