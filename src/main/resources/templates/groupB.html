@@ -52,38 +52,24 @@
                 </div>
 
                 <div class="box2">
-                    <table class="custom-table">
-                        <tr>
-                            <th>Genre chosen</th>
-                            <th>Remove genre</th>
-                        </tr>
-                        <tr th:each="genre, rowStat : ${session.genrelist}" th:unless="${#lists.isEmpty(session.genrelist)}">
-                            <td>
-                                <form th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
-                                    <input type="hidden" name="action" value="removegenre"/>
-                                    <input type="hidden" name="id" th:value="${rowStat.index}"/>
-                                    <input type="hidden" name="name" th:value="${genre}"/>
-                                    <button type="submit" th:if="${#lists.isEmpty(session.genrelist) == false}" th:text="${genre}">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
-                    </table>
-                    <table class="custom-table">
-                        <tr>
-                            <th>Ignored genre</th>
-                            <th>Remove genre</th>
-                        </tr>
-                        <tr th:each="genre, rowStat : ${session.ignoredgenrelist}">
-                            <td>
-                                <form th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
-                                    <input type="hidden" name="action" value="removeignoregenre"/>
-                                    <input type="hidden" name="id" th:value="${rowStat.index}"/>
-                                    <input type="hidden" name="name" th:value="${genre}"/>
-                                    <button type="submit" th:if="${#lists.isEmpty(session.ignoredgenrelist) == false}" th:text="${genre}">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="removeList" th:unless="${#lists.isEmpty(session.genrelist)}">
+                        <h1>Genres chosen</h1>
+                        <form th:each="genre, rowStat : ${session.genrelist}" th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
+                            <input type="hidden" name="action" value="removegenre"/>
+                            <input type="hidden" name="id" th:value="${rowStat.index}"/>
+                            <input type="hidden" name="name" th:value="${genre}"/>
+                            <button type="submit" th:text="${genre}">Remove</button>
+                        </form>
+                    </div>
+                    <div class="removeList" th:unless="${#lists.isEmpty(session.ignoredgenrelist)}">
+                        <h1>Ignored genres</h1>
+                        <form th:each="genre, rowStat : ${session.ignoredgenrelist}" th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
+                            <input type="hidden" name="action" value="removegenre"/>
+                            <input type="hidden" name="id" th:value="${rowStat.index}"/>
+                            <input type="hidden" name="name" th:value="${genre}"/>
+                            <button type="submit" th:text="${genre}">Remove</button>
+                        </form>
+                    </div>
                 </div>
 
 
