@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
+<!-- Indlæs head-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
 <div th:replace="~{fragments :: head('Find java partner')}"></div>
 
 <body>
 
 <div id="page-container">
     <div id="page-content">
+        <!-- Indlæs header-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
         <div th:replace="~{fragments :: header('Find java partner')}"></div>
-        <p><span th:text="${#ctx.teamname}"></span></p>
-        <form method="post">
 
+        <!-- Vis klassebetegnelsen for holdet ved hjælp af Thymeleaf-expression -->
+        <p><span th:text="${#ctx.teamname}"></span></p>
+
+        <form method="post">
+            <!-- Opret et formular til at søge efter en makker -->
             <input type="text" name="username" placeholder="username"/>
             <button type="submit" formaction="/find-partner">Find en makker</button>
+
+            <!-- Vis eventuelle fejlbeskeder ved hjælp af Thymeleaf-expression -->
             <p class="errormessage" th:text="${#ctx.message}"></p>
         </form>
 
