@@ -5,18 +5,18 @@ import java.util.List;
 
 public class Team {
 
-    private String teamName = "Team Java";
+    private String className = "Dat1 F23";
     private List<Student> listOfTeam = new ArrayList<>();
-    
-    public String getTeamName() {
-        return teamName;
+
+    public String getClassName() {
+        return className;
     }
 
     public List<Student> getListOfTeam() {
         return listOfTeam;
     }
 
-    private void loadNames(){
+    private void loadNames() {
         listOfTeam.add(new Student("Ahmad Abdel Razak Hussein Alkaseb"));
         listOfTeam.add(new Student("Mustafa Altinkaya"));
         listOfTeam.add(new Student("Youssef Khaled Badran"));
@@ -45,6 +45,10 @@ public class Team {
         listOfTeam.add(new Student("Ingrid Karen Svendsen"));
         listOfTeam.add(new Student("Mikail Cömert Turan"));
         listOfTeam.add(new Student("Nicklas Waldemar Seier Winther"));
+    }
 
+    @Override
+    public String toString() {
+        return getClassName();
     }
 }
