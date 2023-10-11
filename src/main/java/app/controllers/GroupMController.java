@@ -17,7 +17,7 @@ public class GroupMController
         int speedLimit = Integer.parseInt(ctx.formParam("zone"));
 
 
-        String sql = "select fee from fees where (? > fromkph) and (? < tokph) and zone = ?";
+        String sql = "select fee, \"klip eller frakendelse\" from fees where (? > fromkph) and (? < tokph) and zone = ?";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
@@ -27,7 +27,9 @@ public class GroupMController
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
                     int fee = rs.getInt("fee");
+                    String feeAddOn = rs.getString("klip eller frakendelse");
                     ctx.attribute("fee", fee);
+                    ctx.attribute("feeAddOn", feeAddOn);
                     ctx.render("gruppeM.html");
 
                 } else {
