@@ -1,6 +1,8 @@
 package app.controllers;
 
 import app.entities.Team;
+import io.javalin.http.Context;
+import ognl.enhance.ContextClassLoader;
 
 import java.util.Random;
 
@@ -17,9 +19,9 @@ public class GroupAController {
         return random.nextInt(team.getListOfTeam().size() + 1);
     }
 
-    public String getStudentsName() {
+    public void getStudentsName(Context ctx) {
         int result = getRandomStudent();
-        return team.getListOfTeam().get(result).toString();
+        ctx.attribute("partnerName",team.getListOfTeam().get(result).toString());
+        ctx.render("groupA-find-result.html");
     }
-
 }
