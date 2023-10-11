@@ -14,21 +14,20 @@ public class GroupMController
 {
     public static void  fineCalc(Context ctx, ConnectionPool connectionPool){
         int speed = Integer.parseInt(ctx.formParam("speed"));
-        int speedLimit = Integer.parseInt(ctx.formParam("speedLimit"));
+        int speedLimit = Integer.parseInt(ctx.formParam("zone"));
 
-        String sql = "select * from \"speedLimit\" where speed = ?";
+
+        String sql = "select fee from fees where (? > fromkph) and (? < tokph) and zone = ?";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, speed);
+                ps.setInt(2, speed);
+                ps.setInt(3, speedLimit);
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
-                    int fine = rs.getInt("Bødetakst");
-                    String fineSurcharge1 = rs.getString("Klip_Frakendelse");
-                    String fineSurcharge2 = rs.getString("Tillæg");
-                    ctx.attribute("fine", fine);
-                    ctx.attribute("fineSurcharge1", fineSurcharge1);
-                    ctx.attribute("fineSurcharge2", fineSurcharge2);
+                    int fee = rs.getInt("fee");
+                    ctx.attribute("fee", fee);
                     ctx.render("gruppeM.html");
 
                 } else {
