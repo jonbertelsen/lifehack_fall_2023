@@ -19,15 +19,33 @@ public class GroupBController
     private static void updateGenreList(Context ctx){
         String genre = ctx.formParam("genre");
         String ignoreGenre = ctx.formParam("ignoregenre");
-        if(genre !=null || ignoreGenre!=null){
+        if(genre !=null && !genreList.contains(genre)){
             genreList.add(genre);
+        }
+        if(ignoreGenre!=null && !ignoredGenreList.contains(ignoreGenre)){
             ignoredGenreList.add(ignoreGenre);
         }
-        ctx.sessionAttribute("genrelist", genreList);
-        ctx.sessionAttribute("ignoredgenrelist", ignoredGenreList);
-        ctx.render("groupBtest.html");
     }
     public static void renderChoosenGenre(Context ctx, ConnectionPool connectionPool) {
         updateGenreList(ctx);
+        renderScearhSite(ctx);
+    }
+    public static void removeSearchParameters(Context ctx, ConnectionPool connectionPool) {
+        String action = ctx.formParam("action");
+        String genre = ctx.formParam("name");
+        switch (action){
+            case "removegenre" -> {
+                genreList.remove(genre);
+            }
+            case "removeignoregenre" -> {
+                ignoredGenreList.remove(genre);
+            }
+        }
+        renderScearhSite(ctx);
+    }
+    private static void renderScearhSite(Context ctx){
+        ctx.sessionAttribute("genrelist", genreList);
+        ctx.sessionAttribute("ignoredgenrelist", ignoredGenreList);
+        ctx.render("groupB.html");
     }
 }

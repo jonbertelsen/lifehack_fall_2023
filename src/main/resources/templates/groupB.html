@@ -13,7 +13,7 @@
             <div class="container">
                 <div id="box1">
                     <h2>Edit movie criteria:</h2>
-                    <form action="post">
+                    <form action="/update" method="post">
                         <select id="genre" name="genre" size="3">
                             <option name="action" value="action">Action</option>
                             <option name="crime" value="crime">Crime</option>
@@ -29,8 +29,8 @@
                             <option name="war" value="war">War</option>
                             <option name="western" value="western">Western</option>
                         </select>
-                        <button type="submit">Add</button><br>
-                        <select id="ignoregenres" name="ignoregenres" size="3">
+                        <button type="submit" formaction="/update">Add</button><br>
+                        <select id="ignoregenre" name="ignoregenre" size="3">
                             <option name="action" value="action">Action</option>
                             <option name="crime" value="crime">Crime</option>
                             <option name="drama" value="drama">Drama</option>
@@ -45,9 +45,9 @@
                             <option name="war" value="war">War</option>
                             <option name="western" value="western">Western</option>
                         </select>
-                        <button type="submit">Remove</button>
+                        <button type="submit" formaction="/update">Remove</button>
                         <input name="randomness" type="range"><br>
-                        <button type="submit">Save changes</button>
+                        <button type="submit" formaction="/update">Save changes</button>
                     </form>
                 </div>
 
@@ -60,8 +60,8 @@
                         <tr th:each="genre, rowStat : ${session.genrelist}">
                             <td th:text="${genre}"></td>
                             <td>
-                                <form th:action="@{'/tasks.html?acton=done&id=' + ${rowStat.index}}" method="post">
-                                    <input type="hidden" name="action" value="remove"/>
+                                <form th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
+                                    <input type="hidden" name="action" value="removegenre"/>
                                     <input type="hidden" name="id" th:value="${rowStat.index}"/>
                                     <input type="hidden" name="name" th:value="${genre}"/>
                                     <button type="submit" th:if="${#lists.isEmpty(session.genrelist) == false}">Remove</button>
@@ -77,8 +77,8 @@
                         <tr th:each="genre, rowStat : ${session.ignoredgenrelist}">
                             <td th:text="${genre}"></td>
                             <td>
-                                <form th:action="@{'/tasks.html?acton=done&id=' + ${rowStat.index}}" method="post">
-                                    <input type="hidden" name="action" value="remove"/>
+                                <form th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
+                                    <input type="hidden" name="action" value="removeignoregenre"/>
                                     <input type="hidden" name="id" th:value="${rowStat.index}"/>
                                     <input type="hidden" name="name" th:value="${genre}"/>
                                     <button type="submit" th:if="${#lists.isEmpty(session.ignoredgenrelist) == false}">Remove</button>
