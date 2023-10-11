@@ -3,6 +3,7 @@ package app.controllers;
 import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
+import app.persistence.GroupFCalculator;
 import app.persistence.UserMapper;
 import io.javalin.http.Context;
 
@@ -60,5 +61,10 @@ public class GroupFController
         // Invalidate session
         ctx.req().getSession().invalidate();
         ctx.redirect("/");
+    }
+    public class Controller {
+
+        private GroupFCalculator groupFCalculator;
+
     }
 }
