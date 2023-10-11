@@ -24,6 +24,7 @@ public class GroupEController
         String calculatedValuta = Float.toString(calculator(startCurrency, endCurrency, value));
 
         ctx.attribute("calculatedValuta", calculatedValuta);
+        valutaInit(ctx);
 
     }
 
