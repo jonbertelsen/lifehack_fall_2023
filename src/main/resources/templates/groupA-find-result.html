@@ -9,9 +9,9 @@
     <div id="page-content">
         <div th:replace="~{fragments :: header('Find java partner')}"></div>
 
-        <p>Din partner er <span th:text="${#ctx.}"></span></p>
+        <p>Din partner er <span th:text="${#ctx.partnerName}"></span></p>
 
-
+        <!--
         <form method="post">
 
             <input type="text" name="username" placeholder="username"/>
@@ -19,7 +19,7 @@
             <p class="errormessage" th:text="${#ctx.message}"></p>
         </form>
 
-        <!--
+
         <div th:replace="~{fragments :: footer}"></div>
         -->
 
