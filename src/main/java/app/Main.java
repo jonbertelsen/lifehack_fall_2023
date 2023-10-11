@@ -34,7 +34,7 @@ public class Main
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));
         app.get("/groupA", ctx -> ctx.render("groupA.html"));
-        app.post("/find-partner", ctx -> GroupAController.getRandomStudent(ctx, connectionPool));
+        app.post("/find-partner", ctx -> GroupAController.getStudentsName(ctx, connectionPool));
 
 
     }
