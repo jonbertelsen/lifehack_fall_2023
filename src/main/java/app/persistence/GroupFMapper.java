@@ -27,7 +27,7 @@ public class GroupFMapper {
             }
 
         } catch (SQLException e) {
-            throw new DatabaseException("Error in TaskMapper" + e);
+            throw new DatabaseException("Error in GroupFMapper with drinks " + e);
         }
         return drinksList;
     }
@@ -48,7 +48,7 @@ public class GroupFMapper {
             }
 
         } catch (SQLException e) {
-            throw new DatabaseException("Error in TaskMapper" + e);
+            throw new DatabaseException("Error in GroupFMapper in sugar " + e);
         }
         return sugarContent;
     }
