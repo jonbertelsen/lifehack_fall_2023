@@ -1,6 +1,4 @@
 package app.controllers;
-import java.util.HashMap;
-import java.util.IllegalFormatException;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -16,7 +14,7 @@ public class GroupEController
 
     }).collect(Collectors.toMap(data -> (String)data[0], data -> (Float)data[1]));
 
-    public static void getinput(Context ctx) {
+    public static void getInput(Context ctx) {
 
         float value = Float.parseFloat(ctx.formParam("amount"));
 
@@ -55,8 +53,8 @@ public class GroupEController
         return (value/startToUSD)*USDToEnd;
     }
 
-    public static void valutaInit(Context cxt){
-        cxt.attribute("valutaList", ratios.keySet().toArray(new String[ratios.size()]));
-        cxt.render("groupE.html");
+    public static void valutaInit(Context ctx){
+        ctx.attribute("valutaList", ratios.keySet().toArray(new String[ratios.size()]));
+        ctx.render("groupE.html");
     }
 }
