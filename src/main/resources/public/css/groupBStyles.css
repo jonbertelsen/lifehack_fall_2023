@@ -118,3 +118,7 @@ hr{
     margin: -1px;
     margin-left: 3px;
 }
+
+.removeList{
+    display: flex;
+}
