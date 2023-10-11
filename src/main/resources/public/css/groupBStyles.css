@@ -1,0 +1,120 @@
+html{
+
+
+}
+
+body{
+    background: #5b768d;
+    display:flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin:0;
+}
+
+
+header{
+
+}
+
+.navigationbar{
+    background: #f6c6a8;
+    width:100vw;
+    height:10rem;
+    max-width: 100%;
+    min-width: 60%;
+    max-height: 100%;
+    min-height: 60%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+
+}
+
+hr{
+    margin:0;
+    border: 0.5vh solid black;
+    color:black;
+}
+
+#logo{
+    max-width: 60vh;
+    display:inherit;
+}
+
+
+
+
+
+#menuBtn{
+    width:6rem;
+    height:6rem;
+    border: solid;
+    border-width: 0.3rem;
+    border-radius: 2rem;
+    border-color: #46425e;
+    background: #d17c7c;
+    display: inherit;
+    position:absolute;
+    top: 3%;
+    left:1%;
+    font-size: 1.8rem;
+    text-align: center;
+    align-self: center;
+    padding-top: 0.2rem;
+    font-weight: bold;
+    color:white;
+
+}
+
+#menuBtn:hover{
+    background-color: #d48a8a;
+}
+
+.container{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+}
+
+#box1{
+    border: solid red 1px;
+
+}
+
+#box2{
+    border: solid red 1px;
+
+}
+
+#box4{
+    border:solid red 1px;
+    justify-content: center;
+    text-align: center;
+}
+
+#actionBtn{
+    width:6rem;
+    height:6rem;
+    border: solid;
+    border-width: 0.3rem;
+    border-radius: 2rem;
+    border-color: #46425e;
+    background: #d17c7c;
+    display: inherit;
+    position:absolute;
+    top: 3%;
+    left:1%;
+    font-size: 1.8rem;
+    text-align: center;
+    align-self: center;
+    padding-top: 1.5rem;
+    font-weight: bold;
+    color:white;
+}
+
+#box2 div form button img {
+    height: 10px;
+    width: 10px;
+    margin: -1px;
+    margin-left: 3px;
+}
