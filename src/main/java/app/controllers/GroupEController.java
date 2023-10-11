@@ -45,4 +45,9 @@ public class GroupEController
 
         return (value/startToUSD)*USDToEnd;
     }
+
+    public static void valutaInit(Context cxt){
+        cxt.attribute("valutaList", ratios.keySet().toArray(new String[ratios.size()]));
+        cxt.render("groupE.html");
+    }
 }
