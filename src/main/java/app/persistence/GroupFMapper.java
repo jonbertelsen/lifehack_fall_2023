@@ -11,18 +11,15 @@ import java.util.List;
 
 public class GroupFMapper {
 
-    public static List<GruppeFDrinks> getAllDrinks(int d_id, ConnectionPool connectionPool) throws DatabaseException {
+    public static List<GruppeFDrinks> getAllDrinks(ConnectionPool connectionPool) throws DatabaseException {
         List<GruppeFDrinks> drinksList = new ArrayList<>();
-        String sql = "select * from drinks where d_id=?";
+        String sql = "select * from drinks";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1, d_id);
-                ps.setString(2, name);
-                ps.setInt(3, sugar);
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    //int d_id = rs.getInt("d_id");
+                    int d_id = rs.getInt("d_id");
                     String name = rs.getString("name");
                     int sugar = rs.getInt("sugar");
                     drinksList.add(new GruppeFDrinks(d_id, name, sugar));
@@ -42,7 +39,6 @@ public class GroupFMapper {
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, d_id);
-                ps.setInt(2, sugar);
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
                     //int d_id = rs.getInt("d_id");

@@ -13,7 +13,9 @@ public class GruppeFDrinks {
     }
 
     public GruppeFDrinks(int sugar) {
-        this.sugar= sugar;
+        this.d_id = 0; // Set a default value for d_id, or change it as needed.
+        this.name = ""; // Set a default value for name, or change it as needed.
+        this.sugar = sugar;
     }
 
     public int getD_id() {
