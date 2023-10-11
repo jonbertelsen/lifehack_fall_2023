@@ -8,7 +8,11 @@ public class Team {
     private String className = "Dat1 F23";
     private List<Student> listOfTeam = new ArrayList<>();
 
-    public String getClassName() {
+    public Team() {
+        loadNames();
+    }
+
+    public String getTeamName() {
         return className;
     }
 
@@ -49,6 +53,6 @@ public class Team {
 
     @Override
     public String toString() {
-        return getClassName();
+        return getTeamName();
     }
 }
