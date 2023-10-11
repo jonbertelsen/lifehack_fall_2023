@@ -17,7 +17,7 @@ public class GroupMController
         int speedLimit = Integer.parseInt(ctx.formParam("zone"));
 
 
-        String sql = "select fee, \"klip eller frakendelse\" from fees where (? > fromkph) and (? < tokph) and zone = ?";
+        String sql = "select fee, \"klip eller frakendelse\" from fees where (? >= fromkph) and (? <= tokph) and zone = ?";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
