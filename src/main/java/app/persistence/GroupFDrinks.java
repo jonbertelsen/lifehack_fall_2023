@@ -1,20 +1,20 @@
 package app.persistence;
 
-public class GruppeFDrinks {
+public class GroupFDrinks {
 
     private int d_id;
     private String name;
-    private int sugar;
+    private double sugar;
 
-    public GruppeFDrinks(int d_id, String name, int sugar) {
+    public GroupFDrinks(int d_id, String name, double sugar) {
         this.d_id = d_id;
         this.name = name;
         this.sugar = sugar;
     }
 
-    public GruppeFDrinks(int sugar) {
-        this.d_id = 0; // Set a default value for d_id, or change it as needed.
-        this.name = ""; // Set a default value for name, or change it as needed.
+    public GroupFDrinks(double sugar) {
+        //this.d_id = 0; // Set a default value for d_id, or change it as needed.
+        //this.name = ""; // Set a default value for name, or change it as needed.
         this.sugar = sugar;
     }
 
@@ -26,13 +26,13 @@ public class GruppeFDrinks {
         return name;
     }
 
-    public int getSugar() {
+    public double getSugar() {
         return sugar;
     }
 
     @Override
     public String toString() {
-        return "GruppeFDrinks{" +
+        return "GroupFDrinks{" +
                 "d_id=" + d_id +
                 ", name='" + name + '\'' +
                 ", sugar=" + sugar +
