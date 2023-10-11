@@ -1,6 +1,7 @@
 package app;
 
 import app.config.ThymeleafConfig;
+import app.controllers.GroupBController;
 import app.controllers.GroupDController;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
@@ -36,6 +37,6 @@ public class Main
         app.get("/logout", ctx -> UserController.logout(ctx));*/
         app.get("/",ctx -> ctx.render("groupB.html"));
         //app.get("/",ctx -> GroupDController.renderChoosenGenre(ctx,connectionPool));
-        app.post("/updategenre", ctx -> GroupDController.renderChoosenGenre(ctx,connectionPool));
+        app.post("/updategenre", ctx -> GroupBController.renderChoosenGenre(ctx,connectionPool));
     }
 }
