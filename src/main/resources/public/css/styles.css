@@ -1,0 +1,72 @@
+/* Stylesheet for the application */
+
+h1 {
+    color: #369;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+}
+
+#page-container {
+  /*  border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+}
+
+/* Green box */
+#page-content {
+   /* border: 1px solid blue;*/
+    max-width: 800px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.centered-form form {
+  /*  border: 1px solid green;*/
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.centered-form form * {
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+.errormessage {
+    color: red;
+    font-size: 1.2rem;
+}
+
+/* Table styling */
+
+.task-table {
+    border-collapse: collapse;
+    font-size: 1.2rem;
+}
+
+.task-table td, .task-table th {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.task-table tr:nth-child(even) {
+    background-color: silver;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    margin-top: 30px;
+}
+
+.row {
+    flex-direction: row;
+}

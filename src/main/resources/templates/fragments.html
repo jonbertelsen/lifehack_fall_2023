@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head(title)">
+    <title th:text="${title}">Frontpage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+
+<body>
+
+<div id="page-container">
+
+    <div id="page-content">
+        <header th:fragment="header(title)">
+            <img th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png" width="80%"/>
+            <h1 th:text="${title}"></h1>
+        </header>
+
+        <footer th:fragment="footer">
+            <a th:if="${#ctx.session.currentUser} == null" th:href="@{/createuser}">Create account</a>
+            <a th:if="${#ctx.session.currentUser} != null" th:href="@{/logout}">Logout</a>
+            <a href="/">Home</a>
+        </footer>
+    </div>
+</div>
+</body>
+</html>

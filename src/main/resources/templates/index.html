@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{fragments :: head('Lifehack')}"></div>
+
+<body>
+
+<div id="page-container">
+
+    <div id="page-content">
+
+        <div th:replace="~{fragments :: header('Welcome')}"></div>
+
+        <div class="centered-form">
+            <form method="post">
+
+                <input type="text" name="username" placeholder="username"/>
+                <input type="password" name="password" placeholder="password"/>
+                <button type="submit" formaction="/login">Log på</button>
+
+                <p class="errormessage" th:text="${#ctx.message}"></p>
+            </form>
+        </div>
+        <div th:replace="~{fragments :: footer}"></div>
+    </div>
+</div>
+</body>
+</html>
