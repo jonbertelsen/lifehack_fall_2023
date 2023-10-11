@@ -14,7 +14,7 @@ public class GroupBMapperCustomizable implements GroupBMapper{
     float genrePrio;
     float ryanPrio;
 
-    GroupBMapperCustomizable(float genrePrio, float ryanPrio){
+    public GroupBMapperCustomizable(float genrePrio, float ryanPrio){
         this.genrePrio = genrePrio;
         this.ryanPrio = ryanPrio;
     }

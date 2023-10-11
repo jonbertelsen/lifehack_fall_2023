@@ -1,6 +1,9 @@
 package app.controllers;
 
+import app.entities.GroupBMovie;
 import app.persistence.ConnectionPool;
+import app.persistence.GroupBMapper;
+import app.persistence.GroupBMapperCustomizable;
 import io.javalin.http.Context;
 
 import java.util.ArrayList;
@@ -13,8 +16,11 @@ public class GroupBController
     public static void getMovieResults(Context ctx, ConnectionPool connectionPool){
         List<String> genreList = ctx.sessionAttribute("genrelist");
         List<String> ignoredGenreList = ctx.sessionAttribute("ignoredgenrelist");
-        float rendomness = Float.parseFloat(ctx.formParam("randomness"));
-
+        float randomness = Float.parseFloat(ctx.formParam("randomness"));
+        GroupBMapper bMap = new GroupBMapperCustomizable(10,25);
+        List<GroupBMovie> movieList  = bMap.getMovies(connectionPool, genreList, ignoredGenreList, randomness, false);
+        ctx.attribute("movies", movieList);
+        //ctx.render();
     }
     private static void updateGenreList(Context ctx){
         String genre = ctx.formParam("genre");
