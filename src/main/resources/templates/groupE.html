@@ -8,8 +8,28 @@
 <div id="page-container">
     <div id="page-content">
         <div th:replace="~{fragments :: header('Pagetitle')}"></div>
+    <h1>Valutaomregner</h1>
+
+        <form method="post">
 
 
+            <br><br>
+
+            <label for="amount">Enter amount to calculate:</label><br>
+            <input type="number" id="amount" name="amount">
+            <select name="startCurrency" id="startCurrency">
+                <option th:each="valuta: ${#ctx.valutaList}" th:text="${valuta}" ></option>
+
+            </select><br>
+
+           <a  id="result" th:text="${#ctx.calculatedValuta}">djfhd</a>
+
+            <select name="endCurrency" id="endCurrency" >
+                <option th:each="valuta: ${#ctx.valutaList}" th:text="${valuta}"></option>
+            </select>
+            <br>
+            <button formaction="/valuta" type="submit" value="Submit" >submit</button>
+        </form>
 
 
         <div th:replace="~{fragments :: footer}"></div>

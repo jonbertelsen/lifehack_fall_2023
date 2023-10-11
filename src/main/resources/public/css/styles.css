@@ -1,5 +1,10 @@
 /* Stylesheet for the application */
 
+#result{
+    border:  red;
+
+}
+
 h1 {
     color: #369;
     font-family: Arial, Helvetica, sans-serif;
