@@ -10,7 +10,7 @@ import java.util.List;
         public GroupFCalculator(int d_id, ConnectionPool connectionPool) throws DatabaseException {
             List<GroupFDrinks> sugarContent = GroupFMapper.getSugar(d_id, connectionPool);
 
-            double sugar = sugarContent.get(d_id).getSugar();
+            double sugar = sugarContent.get(0).getSugar();
 
             double sugarPerDay = 30 - sugar;
 
