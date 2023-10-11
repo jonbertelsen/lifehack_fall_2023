@@ -37,7 +37,8 @@ public class GroupMController
                 }
             }
         } catch (SQLException | DatabaseException e) {
-            throw new RuntimeException(e);
+            ctx.attribute("message", e.getMessage());
+            ctx.render("groupM.html");
         }
     }
 }
