@@ -1,6 +1,7 @@
 package app;
 
 import app.config.ThymeleafConfig;
+import app.controllers.GroupDController;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
@@ -23,7 +24,7 @@ public class Main
         Javalin app = Javalin.create(config -> {
             config.staticFiles.add("/public");
             JavalinThymeleaf.init(ThymeleafConfig.templateEngine());
-        }).start(7070);
+        }).start(7071);
 
         // Routing
 
@@ -33,6 +34,7 @@ public class Main
         app.get("/createuser", ctx -> ctx.render("createuser.html"));
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));
+        app.get("/coffee", ctx -> GroupDController.showPage(ctx));
 
 
     }
