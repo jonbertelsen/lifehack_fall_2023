@@ -20,7 +20,8 @@
 
             <div class="container">
                 <div id="box1">
-                    <h2>Edit movie criteria:</h2>
+                    <h2 id="editMovieTxt">Edit Movie Criteria:</h2>
+                    <h3 id="genreWhitelistTxt">Genre Whitelist:</h3>
                     <form action="post">
                         <select id="genre" name="genre" size="3">
                             <option name="action" value="action">Action</option>
@@ -37,7 +38,8 @@
                             <option name="war" value="war">War</option>
                             <option name="western" value="western">Western</option>
                         </select>
-                        <button type="submit">Add</button><br>
+                        <button id="addGenreBtn" type="submit">Add</button><br>
+                        <h3 id="genreBlacklistTxt">Genre Blacklist:</h3>
                         <select id="ignoregenres" name="ignoregenres" size="3">
                             <option name="action" value="action">Action</option>
                             <option name="crime" value="crime">Crime</option>
@@ -53,17 +55,18 @@
                             <option name="war" value="war">War</option>
                             <option name="western" value="western">Western</option>
                         </select>
-                        <button type="submit">Remove</button>
-                        <input name="randomness" type="range"><br>
-                        <button type="submit">Save changes</button>
+                        <button id="addGenreBlacklistBtn" type="submit">Add</button>
+                        <input id="slider" class="randomSlider" name="randomness" type="range" min="0" max="100" value="0"><br>
+                        <p>Randomness: <span id="randomAmount"></span></p>
+                        <button id="saveChangesBtn" type="submit">Save changes</button>
                     </form>
                 </div>
-
                 <div id="box2">
-                    <table class="custom-table">
+                    <h2 id="customMovieTxt">Custom Movie Criteria:</h2>
+                    <table class="custom-table" id="chosenGenresTable">
                         <tr>
-                            <th>Genre chosen</th>
-                            <th>Remove genre</th>
+                            <th>Genre(s) chosen:</th>
+                            <th>Remove genre(s):</th>
                         </tr>
                         <tr th:each="genre, rowStat : ${session.genrelist}">
                             <td th:text="${genre}"></td>
@@ -77,10 +80,10 @@
                             </td>
                         </tr>
                     </table>
-                    <table class="custom-table">
+                    <table class="custom-table" id="ignoredGenresTable">
                         <tr>
-                            <th>Ignored genre</th>
-                            <th>Remove genre</th>
+                            <th>Ignored genres:</th>
+                            <th>Remove genre(s):</th>
                         </tr>
                         <tr th:each="genre, rowStat : ${session.ignoredgenrelist}">
                             <td th:text="${genre}"></td>
@@ -96,11 +99,24 @@
                     </table>
                 </div>
     </div>
-    <div id="box4">
-        <a href="/Action!"><div>
-            <a id="actionBtn">bruh</a> <!-- HUSK ABSOLUTE POSITION SKAL VÆK!!!!-->
-        </div></a>
+        <div id="box4">
+            <form>
+                <button id="actionBtn" type="submit">ACTION!</button>
+            </form>
+        </div>
     </div>
 </div>
+
+<script>
+    var slider = document.getElementById("slider")
+    var count = document.getElementById("randomAmount")
+    count.innerHTML = slider.value;
+
+    slider.oninput = function (){
+        count.innerHTML = this.value;
+    }
+</script>
+
+
 </body>
 </html>
