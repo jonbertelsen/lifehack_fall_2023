@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GroupBMapperCustomizable implements GroupBMapper{
-    final String DB = "Movie";
+    final String DB = "public.movie";
     float genrePrio;
     float ryanPrio;
 
@@ -43,13 +43,13 @@ public class GroupBMapperCustomizable implements GroupBMapper{
         }
         if(!genres.isEmpty()){
             for (String s: genres) {
-                sqllikeness.append(" + case when genres like '%").append(s).append("%' then ").append(genrePrio).append(" else 0 end");
+                sqllikeness.append(" + case when genre like '%").append(s).append("%' then ").append(genrePrio).append(" else 0 end");
             }
         }
         sqllikeness.append(") as likeness");
         if(!ignoredGenres.isEmpty()){
             for (String s: ignoredGenres) {
-                sqlWhere.append(" and not lower(genres) like '%").append(s).append("%'");
+                sqlWhere.append(" and not lower(genre) like '%").append(s).append("%'");
             }
         }
 
@@ -74,7 +74,7 @@ public class GroupBMapperCustomizable implements GroupBMapper{
         String USER = "postgres";
         String PASSWORD = "postgres";
         String URL = "jdbc:postgresql://localhost:5432/%s?currentSchema=public";
-        String DB = "fourthingsplus";
+        String DB = "lifehack";
         ConnectionPool connectionPool = ConnectionPool.getInstance(USER, PASSWORD, URL, DB);
         List<GroupBMovie> moves = map.getMovies(connectionPool, List.of("Drama"), List.of("Horror"), 5, false);
         for (GroupBMovie g: moves) {
