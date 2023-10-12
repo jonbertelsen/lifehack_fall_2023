@@ -1,0 +1,26 @@
+#page-container {
+    background-image: url("../images/hacker.gif");
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form-item {
+    min-width: 300px;
+
+}
+
+.text-styling {
+    font-size: 2em;
+}
+
+.field-spacing {
+    padding: 5px;
+}

@@ -19,12 +19,16 @@ public class GroupAController {
     // Metode til at håndtere anmodningen om at finde en studerendes navn
     public static void getStudentsName(Context ctx, ConnectionPool connectionPool) {
         int result = getRandomStudent();
+
         String userName = ctx.formParam("username");
+        String inputLevel = ctx.formParam("java_level");
 
         try {
             // Sæt brugernavn og partnerens navn i konteksten (context)
             ctx.attribute("username", userName);
+            ctx.attribute("java_level", inputLevel);
             ctx.attribute("partnerName", team.getListOfTeam().get(result).toString());
+
 
             // Vis resultatet ved at rendere en HTML-side
             ctx.render("groupA-find-result.html");

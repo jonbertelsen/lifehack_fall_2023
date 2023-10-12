@@ -35,7 +35,5 @@ public class Main
         app.get("/logout", ctx -> UserController.logout(ctx));
         app.get("/groupA", ctx -> GroupAController.getFrontPage(ctx, connectionPool));
         app.post("/find-partner", ctx -> GroupAController.getStudentsName(ctx, connectionPool));
-
-
     }
 }
