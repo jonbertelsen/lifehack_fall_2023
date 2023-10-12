@@ -4,8 +4,12 @@ import app.config.ThymeleafConfig;
 import app.controllers.GroupBController;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
+import app.persistence.GroupBMapper;
+import app.persistence.GroupBMapperCustomizable;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
+
+import java.util.List;
 
 public class Main
 {
@@ -15,7 +19,8 @@ public class Main
     private static final String URL = "jdbc:postgresql://localhost:5432/%s?currentSchema=public";
     private static final String DB = "lifehack";
 
-    private static final ConnectionPool connectionPool = ConnectionPool.getInstance(USER, PASSWORD, URL, DB);
+    public static final ConnectionPool connectionPool = ConnectionPool.getInstance(USER, PASSWORD, URL, DB);
+
 
     public static void main(String[] args)
     {
@@ -34,8 +39,7 @@ public class Main
         app.get("/createuser", ctx -> ctx.render("createuser.html"));
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));*/
-        //app.get("/",ctx -> ctx.render("groupB.html"));
-        app.get("/", ctx -> GroupBController.renderStart(ctx));
+        app.get("/",ctx -> GroupBController.renderChoosenGenre(ctx, connectionPool));
         app.post("/update", ctx -> GroupBController.renderChoosenGenre(ctx,connectionPool));
         app.post("/groupB.html",ctx -> GroupBController.removeSearchParameters(ctx,connectionPool));
         app.get("/actionBtn",ctx -> GroupBController.getMovieResults(ctx, connectionPool));

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <link href="../public/css/groupBStyles.css" th:href="@{/css/groupBStyles.css}" rel="stylesheet"/>
     <meta charset="UTF-8">
 </head>
@@ -18,20 +19,14 @@
 </header>
 
     <div class="resultBox">
-        <table class="custom-table" id="">
+        <table class="custom-table" id="" th:unless="${#lists.isEmpty(movies)}">
             <tr>
-                <th>Genre(s) chosen:</th>
-                <th>Remove genre(s):</th>
+                <th>id</th>
+                <th>name</th>
             </tr>
-            <tr th:each="movie, rowStat : ${movies}">
+            <tr th:each="movie, rowStat : ${#ctx.movies}">
+                <td th:text="${movie.id}"></td>
                 <td th:text="${movie.name}"></td>
-                <td>
-                    <form th:action="@{'/tasks.html?acton=done&id=' + ${rowStat.index}}" method="post">
-                        <input type="hidden" name="action" value="remove"/>
-                        <input type="hidden" name="id" th:value="${rowStat.index}"/>
-                        <input type="hidden" name="name" th:value="${movie.name}"/>
-                    </form>
-                </td>
             </tr>
         </table>
     </div>
