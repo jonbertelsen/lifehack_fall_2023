@@ -1,0 +1,340 @@
+html{
+
+
+}
+
+body{
+    background: #5b768d;
+    display:flex;
+    overflow-x: hidden;
+    margin:0;
+}
+
+
+header{
+
+}
+
+.navigationbar{
+    background: #f6c6a8;
+    width:100vw;
+    height:10rem;
+    max-width: 100%;
+    min-width: 60%;
+    max-height: 100%;
+    min-height: 60%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+
+}
+
+hr{
+    margin:0;
+    border: 0.5vh solid black;
+    color:black;
+}
+
+#logo{
+    max-width: 60vh;
+    display:inherit;
+}
+
+
+
+
+
+#menuBtn{
+    width:6rem;
+    height:6rem;
+    border: solid;
+    border-width: 0.3rem;
+    border-radius: 2rem;
+    border-color: #46425e;
+    background: #d17c7c;
+    display: inherit;
+    position:absolute;
+    top: 3%;
+    left:1%;
+    font-size: 1.8rem;
+    text-align: center;
+    align-self: center;
+    padding-top: 0.2rem;
+    font-weight: bold;
+    color:white;
+    transition: all 0.3s ease 0s;
+    box-shadow: 0px 8px 15px black;
+}
+
+#menuBtn:hover{
+    background-color: #d48a8a;
+    transform: translateY(-7px);
+}
+
+.container{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+}
+
+#box1{
+    background-color: #f6c6a8;
+    width:28rem;
+    height:36rem;
+    margin-right:4rem;
+    margin-top: 4rem;
+    border: #46425e 0.3rem solid;
+    border-radius: 0.3rem;
+}
+
+#box2{
+    background-color: #f6c6a8;
+    width:28rem;
+    height:36rem;
+    margin-top: 4rem;
+    border: #46425e 0.3rem solid;
+    border-radius: 0.3rem;
+}
+
+#box4{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
+
+}
+
+#actionBtn{
+    width:11rem;
+    height:5rem;
+    border: solid;
+    border-width: 0.3rem;
+    border-radius: 2rem;
+    border-color: #46425e;
+    background: #d17c7c;
+    display: inherit;
+    font-size: 1.8rem;
+    text-align: center;
+    align-self: center;
+    font-weight: bold;
+    color:white;
+    font-style: italic;
+    font-family: Tinos, serif;
+    transition: all 0.3s ease 0s;
+    box-shadow: 0px 8px 15px black;
+
+}
+
+#actionBtn:hover{
+    background-color: #d48a8a;
+    transform: translateY(-7px);
+}
+
+#box2 div form button img {
+    height: 10px;
+    width: 10px;
+    margin: -1px;
+    margin-left: 3px;
+}
+
+.removeList{
+    display: flex;
+}
+
+
+#editMovieTxt{
+    position: relative;
+    bottom:50px;
+    left:120px;
+}
+
+#customMovieTxt{
+    position: relative;
+    bottom:50px;
+    left:110px;
+}
+
+
+#genreWhitelistTxt{
+    position: relative;
+    bottom:3rem;
+    left:1rem;
+}
+
+#genreBlacklistTxt{
+    position: relative;
+    left:1rem;
+    bottom:5rem;
+}
+
+#genre{
+    position: relative;
+    left:1rem;
+    bottom:4rem;
+    width:22rem;
+    height:2rem;
+}
+
+#ignoregenres{
+    position: relative;
+    left:1rem;
+    bottom:6rem;
+    width:22rem;
+    height:2rem;
+}
+
+#addGenreBtn{
+    position: relative;
+    left:1.2rem;
+    /*top: 1rem;*/
+    width:4rem;
+    height:2rem;
+    border: solid;
+    border-width: 0.3rem;
+    border-radius: 2rem;
+    border-color: #46425e;
+    background: #d17c7c;
+    font-size: 1rem;
+    text-align: center;
+    align-self: center;
+    padding-top: 0.2rem;
+    font-weight: bold;
+    color:white;
+    transition: all 0.3s ease 0s;
+    box-shadow: 0px 8px 15px black;
+
+}
+
+#addGenreBtn:hover{
+    background-color: #d48a8a;
+    transform: translateY(-7px);
+}
+
+#addGenreBlacklistBtn{
+    position: relative;
+    left:1.2rem;
+    /*top: 1rem;*/
+    width:4rem;
+    height:2rem;
+    border: solid;
+    border-width: 0.3rem;
+    border-radius: 2rem;
+    border-color: #46425e;
+    background: #d17c7c;
+    font-size: 1rem;
+    text-align: center;
+    align-self: center;
+    padding-top: 0.2rem;
+    font-weight: bold;
+    color:white;
+    transition: all 0.3s ease 0s;
+    box-shadow: 0px 8px 15px black;
+
+}
+
+#addGenreBlacklistBtn:hover{
+    background-color: #d48a8a;
+    transform: translateY(-7px);
+}
+
+#saveChangesBtn{
+    position: relative;
+    left:19rem;
+    bottom: 4rem;
+    width:8rem;
+    height:3rem;
+    border: solid;
+    border-width: 0.3rem;
+    border-radius: 2rem;
+    border-color: #46425e;
+    background: #d17c7c;
+    font-size: 1rem;
+    text-align: center;
+    align-self: center;
+    padding-bottom: 0;
+    font-weight: bold;
+    color:white;
+    transition: all 0.3s ease 0s;
+    box-shadow: 0px 8px 15px black;
+}
+
+#saveChangesBtn:hover{
+    background-color: #d48a8a;
+    transform: translateY(-7px);
+}
+
+
+.randomSlider {
+    position: relative;
+    bottom: 4rem;
+    left: 1rem;
+    width: 21.5rem;
+}
+
+
+
+p{
+    position: relative;
+    bottom: 7.5rem;
+    left: 9rem;
+}
+
+.custom-table{
+    border: black solid 0.1rem;
+    margin: auto;
+    position: relative;
+}
+
+#chosenGenresTable{
+
+}
+
+#ignoredGenresTable{
+
+}
+
+td{
+    border: black solid 0.1rem;
+}
+
+
+.resultBox{
+    background-color: #f6c6a8;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    width: 80vw;
+    height:50vh;
+    border: #46425e solid 0.2rem;
+    display: flex;
+    margin: auto;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+
+#retakeButton{
+    width:11rem;
+    height:5rem;
+    border: solid;
+    border-width: 0.3rem;
+    border-radius: 2rem;
+    border-color: #46425e;
+    background: #d17c7c;
+    display: block;
+    font-size: 1.8rem;
+    text-align: center;
+    align-self: center;
+    font-weight: bold;
+    color:white;
+    font-style: italic;
+    font-family: Tinos, serif;
+    box-shadow: 0px 8px 15px black;
+    transition: all 0.3s ease 0s;
+}
+
+#retakeButton:hover{
+    background-color: #d48a8a;
+    transform: translateY(-7px);
+}
+
+

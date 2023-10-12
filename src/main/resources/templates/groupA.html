@@ -1,18 +1,39 @@
-defaulttemplate.html<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
 
-<div th:replace="~{fragments :: head('title')}"></div>
+<html lang="da" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<body>
+<!-- Indlæs head-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
+<div th:replace="~{fragments :: head('Find java partner')}"></div>
 
-<div id="page-container">
+<body class="body">
+
+<div id="page-container" class="java-partner">
     <div id="page-content">
-        <div th:replace="~{fragments :: header('Pagetitle')}"></div>
+        <!-- Indlæs header-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
+        <header th:fragment="header(title)">
+            <img class="white-logo" th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png" width="80%"/>
+            <h1 class="text-styling">Find en Java partner fra teamet <span th:text="${#ctx.teamname}"></span></h1>
+        </header>
+
+        <!-- Vis klassebetegnelsen for holdet ved hjælp af Thymeleaf-expression -->
+        <form class="form-container" method="post">
+            <!-- Opret et formular til at søge efter en makker -->
+            <input class="form-item" type="text" name="username" placeholder="Indtast dit navn" required/>
+            <select class="form-item" name="java_level" id="java_level" required>
+                <option value="" disabled selected>Vælg erfarings niveau</option>
+                <option value="begynder">Begynder</option>
+                <option value="øvet">Øvet</option>
+                <option value="hardcore">Hardcore</option>
+            </select>
+            <button class="form-item" type="submit" formaction="/find-partner">Find en makker</button>
+
+            <!-- Vis eventuelle fejlbeskeder ved hjælp af Thymeleaf-expression -->
+            <p class="errormessage text-styling" th:text="${#ctx.message}"></p>
+        </form>
 
 
+        <div class="text-styling" th:replace="~{fragments :: footer}"></div>
 
-
-        <div th:replace="~{fragments :: footer}"></div>
     </div>
 </div>
 </body>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{fragments :: head('title')}"></div>
+
+<body>
+
+<div id="page-container">
+    <div id="page-content">
+        <div th:replace="~{fragments :: header('Pagetitle')}"></div>
+
+    </div>
+    <p th:text="${#ctx.genremessage}"></p>
+    <table class="custom-table">
+        <tr>
+            <th>Genre chosen</th>
+            <th>Remove genre</th>
+        </tr>
+        <tr th:each="genre, rowStat : ${session.genrelist}">
+            <td th:text="${genre}"></td>
+            <td>
+                <form th:action="@{'/tasks.html?acton=remove&id=' + ${rowStat.index}}" method="post">
+                    <input type="hidden" name="action" value="remove"/>
+                    <input type="hidden" name="id" th:value="${rowStat.index}"/>
+                    <input type="hidden" name="name" th:value="${genre}"/>
+                    <button type="submit" th:if="${#lists.isEmpty(session.genrelist) == false}">Remove</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <p th:text="${#ctx.ignoremessage}"></p>
+    <table class="custom-table">
+        <tr>
+            <th>Ignored genre</th>
+            <th>Remove genre</th>
+        </tr>
+        <tr th:each="genre, rowStat : ${session.ignoredgenrelist}">
+            <td th:text="${genre}"></td>
+            <td>
+                <form th:action="@{'/tasks.html?acton=remove&id=' + ${rowStat.index}}" method="post">
+                    <input type="hidden" name="action" value="remove"/>
+                    <input type="hidden" name="id" th:value="${rowStat.index}"/>
+                    <input type="hidden" name="name" th:value="${genre}"/>
+                    <button type="submit" th:if="${#lists.isEmpty(session.ignoredgenrelist) == false}">Remove</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div th:replace="~{fragments :: footer}"></div>
+</div>
+</div>
+</body>
+</html>
