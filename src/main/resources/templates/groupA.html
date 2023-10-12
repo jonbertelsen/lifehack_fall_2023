@@ -5,36 +5,34 @@
 <!-- Indlæs head-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
 <div th:replace="~{fragments :: head('Find java partner')}"></div>
 
-<body>
+<body class="body">
 
-<div id="page-container">
+<div id="page-container" class="java-partner">
     <div id="page-content">
         <!-- Indlæs header-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
         <header th:fragment="header(title)">
-            <img th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png" width="80%"/>
-            <h1>Find en Java partner fra teamet <span th:text="${#ctx.teamname}"></span></h1>
+            <img class="white-logo" th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png" width="80%"/>
+            <h1 class="text-styling">Find en Java partner fra teamet <span th:text="${#ctx.teamname}"></span></h1>
         </header>
 
         <!-- Vis klassebetegnelsen for holdet ved hjælp af Thymeleaf-expression -->
-        <form method="post">
+        <form class="form-container" method="post">
             <!-- Opret et formular til at søge efter en makker -->
-            <input type="text" name="username" placeholder="username"/>
-            <label for="java_level">Vælg din java erfarring :</label>
-            <select name="java_level" id="java_level">
-                <option disabled>Vælg erfarings niveau</option>
+            <input class="form-item" type="text" name="username" placeholder="Indtast dit navn" required/>
+            <select class="form-item" name="java_level" id="java_level" required>
+                <option value="" disabled selected>Vælg erfarings niveau</option>
                 <option value="begynder">Begynder</option>
                 <option value="øvet">Øvet</option>
                 <option value="hardcore">Hardcore</option>
             </select>
-            <button type="submit" formaction="/find-partner">Find en makker</button>
+            <button class="form-item" type="submit" formaction="/find-partner">Find en makker</button>
 
             <!-- Vis eventuelle fejlbeskeder ved hjælp af Thymeleaf-expression -->
-            <p class="errormessage" th:text="${#ctx.message}"></p>
+            <p class="errormessage text-styling" th:text="${#ctx.message}"></p>
         </form>
 
-        <!--
-        <div th:replace="~{fragments :: footer}"></div>
-        -->
+
+        <div class="text-styling" th:replace="~{fragments :: footer}"></div>
 
     </div>
 </div>

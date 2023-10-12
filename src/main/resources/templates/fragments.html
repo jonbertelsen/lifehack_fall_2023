@@ -12,12 +12,12 @@
 
 <body>
 
-<div id="page-container">
+<div id="page-container" class="java-partner">
 
     <div id="page-content">
         <header th:fragment="header(title)">
             <img th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png" width="80%"/>
-            <h1 th:text="${title + #ctx.teamname}"></h1>
+            <h1 th:text="${title}"></h1>
         </header>
 
         <footer th:fragment="footer">
