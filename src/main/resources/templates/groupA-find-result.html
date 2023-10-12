@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="da" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <!-- Indlæs head-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
-<div th:replace="~{fragments :: head('Find java partner')}"></div>
-
 <body>
 
 <div id="page-container">
     <div id="page-content">
         <!-- Indlæs header-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
-        <div th:replace="~{fragments :: header('Find java partner')}"></div>
+        <header th:fragment="header(title)">
+            <img th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png" width="80%"/>
+            <h1>Tillykke <span th:text="${#ctx.username}"></span>!</h1>
+        </header>
 
         <!-- Vis resultatet af partner-søgningen ved hjælp af Thymeleaf-udtryk -->
-        <p>Fedt <span th:text="${#ctx.username}"></span>, din partner er <span th:text="${#ctx.partnerName}"></span></p>
+        <p>Vi har fundet din nye java partner' <span th:text="${#ctx.username}"></span>!!!</p>
+
+        <h1> Din partner er <span th:text="${#ctx.partnerName}"></span></h1>
 
         <!-- Indlæs footer-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
         <div th:replace="~{fragments :: footer}"></div>
