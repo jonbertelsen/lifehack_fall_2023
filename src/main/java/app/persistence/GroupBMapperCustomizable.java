@@ -34,7 +34,7 @@ public class GroupBMapperCustomizable implements GroupBMapper{
     @Override
     public List<GroupBMovie> getMovies(ConnectionPool connectionPool, List<String> genres, List<String> ignoredGenres, float randomness, boolean ryanInMovie) {
         List<GroupBMovie> results = new ArrayList<>();
-        StringBuilder sqlB = new StringBuilder("select id, name from (select id, name, (");
+        StringBuilder sqlB = new StringBuilder("select a.id, a.name from (select id, name, (");
         StringBuilder sqlWhere = new StringBuilder(" where 1=1");
         StringBuilder sqllikeness = new StringBuilder();
         sqllikeness.append("random()*").append(randomness);
@@ -53,7 +53,7 @@ public class GroupBMapperCustomizable implements GroupBMapper{
             }
         }
 
-        sqlB.append(sqllikeness).append(" from ").append(DB).append(sqlWhere).append(") order by likeness desc limit 5;");
+        sqlB.append(sqllikeness).append(" from ").append(DB).append(sqlWhere).append(") as a order by a.likeness desc limit 5;");
         String sql = sqlB.toString();
         try(Connection conn = connectionPool.getConnection()) {
             try (PreparedStatement ps = conn.prepareStatement(sql)) {
