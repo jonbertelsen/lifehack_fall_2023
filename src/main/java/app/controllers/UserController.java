@@ -6,8 +6,6 @@ import app.persistence.ConnectionPool;
 import app.persistence.UserMapper;
 import io.javalin.http.Context;
 
-import java.util.List;
-
 public class UserController
 {
     public static void login(Context ctx, ConnectionPool connectionPool)

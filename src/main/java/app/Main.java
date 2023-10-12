@@ -1,8 +1,7 @@
 package app;
 
 import app.config.ThymeleafConfig;
-import app.controllers.GroupEController;
-import app.controllers.UserController;
+import app.controllers.*;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
@@ -34,9 +33,6 @@ public class Main
         app.get("/createuser", ctx -> ctx.render("createuser.html"));
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));
-        
-        app.post("/valuta", ctx -> GroupEController.getInput(ctx));
-        app.get("/valuta", ctx -> GroupEController.valutaInit(ctx));
 
 
     }
