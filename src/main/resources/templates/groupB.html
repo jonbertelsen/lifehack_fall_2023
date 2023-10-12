@@ -1,19 +1,95 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
-<div th:replace="~{fragments :: head('title')}"></div>
-
+<head>
+    <link href="../public/css/groupBStyles.css" th:href="@{/css/groupBStyles.css}" rel="stylesheet"/>
+    <meta charset="UTF-8">
+</head>
 <body>
 
-<div id="page-container">
-    <div id="page-content">
-        <div th:replace="~{fragments :: header('Pagetitle')}"></div>
+    <div>
+        <header>
+            <div class="navigationbar">
+                <form>
+                    <button id="menuBtn" type="submit">Menu</button>
+                </form>
+                <img id="logo" th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png"/>
+            </div>
+            <hr>
+        </header>
 
-
-
-
-        <div th:replace="~{fragments :: footer}"></div>
+        <div class="container">
+            <div id="box1">
+                <h2 id="editMovieTxt">Edit Movie Criteria:</h2>
+                <h3 id="genreWhitelistTxt">Genre Whitelist:</h3>
+                <form action="post" method="post">
+                    <select id="genre" name="genre">
+                        <option th:each="genre, statDex : ${#ctx.genres}" th:name="${genre}" th:value="${genre}" th:text="${genre}"></option>
+                    </select>
+                    <button id="addGenreBtn" type="submit" formaction="/update1">Add</button><br>
+                    <h3 id="genreBlacklistTxt">Genre Blacklist:</h3>
+                    <select id="ignoregenres" name="ignoregenre">
+                        <option th:each="genre, statDex : ${#ctx.genres}" th:name="${genre}" th:value="${genre}" th:text="${genre}"></option>
+                    </select>
+                    <button id="addGenreBlacklistBtn" type="submit" formaction="/update2">Add</button>
+                    <input id="slider" class="randomSlider" type="range" min="0" max="100" th:value="${#ctx.session.randomness}" value="5"><br>
+                    <input id="count" name="randomness" type="hidden" th:value="${#ctx.session.randomness}" value="5">
+                    <p>Randomness: <span id="randomAmount"></span></p>
+                    <button id="saveChangesBtn" type="submit" formaction="/update3">Save changes</button>
+                </form>
+            </div>
+            <div id="box2">
+                <h2 id="customMovieTxt">Custom Movie Criteria:</h2>
+                <table class="custom-table" id="chosenGenresTable">
+                    <tr>
+                        <th>Genre(s) chosen:</th>
+                        <th>Remove genre(s):</th>
+                    </tr>
+                    <div class="removeList" th:unless="${#lists.isEmpty(session.genrelist)}">
+                        <form th:each="genre, rowStat : ${session.genrelist}" th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
+                            <input type="hidden" name="action" value="removegenre"/>
+                            <input type="hidden" name="id" th:value="${rowStat.index}"/>
+                            <input type="hidden" name="name" th:value="${genre}"/>
+                            <button type="submit"><span th:text="${genre}">Error</span><img th:src="@{/images/106830.png}" src="../public/images/106830.png" height="10px" width="10px"/></button>
+                        </form>
+                    </div>
+                </table>
+                <br>
+                <table class="custom-table" id="ignoredGenresTable">
+                    <tr>
+                        <th>Ignored genres:</th>
+                        <th>Remove genre(s):</th>
+                    </tr>
+                    <div class="removeList" th:unless="${#lists.isEmpty(session.ignoredgenrelist)}">
+                        <form th:each="genre, rowStat : ${session.ignoredgenrelist}" th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
+                            <input type="hidden" name="action" value="removeignoregenre"/>
+                            <input type="hidden" name="id" th:value="${rowStat.index}"/>
+                            <input type="hidden" name="name" th:value="${genre}"/>
+                            <button type="submit"><span th:text="${genre}">Error</span><img th:src="@{/images/106830.png}" src="../public/images/106830.png" height="10px" width="10px"/></button>
+                        </form>
+                    </div>
+                </table>
+            </div>
+        </div>
+        <div id="box4">
+            <form method="get">
+                <button id="actionBtn" type="submit" formaction="/actionBtn">ACTION!</button>
+            </form>
+        </div>
     </div>
 </div>
+
+<script>
+    var slider = document.getElementById("slider")
+    var count = document.getElementById("randomAmount")
+    var currentCount = document.getElementById("count")
+    count.innerHTML = slider.value;
+
+    slider.oninput = function (){
+        count.innerHTML = this.value;
+        currentCount.value = this.value;
+    }
+</script>
+
+
 </body>
 </html>
