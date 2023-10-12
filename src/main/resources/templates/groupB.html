@@ -31,8 +31,8 @@
                         <option th:each="genre, statDex : ${#ctx.genres}" th:name="${genre}" th:value="${genre}" th:text="${genre}"></option>
                     </select>
                     <button id="addGenreBlacklistBtn" type="submit" formaction="/update">Add</button>
-                    <input id="slider" class="randomSlider" type="range" min="0" max="100" value="5"><br>
-                    <input id="count" name="randomness" type="hidden" value="5">
+                    <input id="slider" class="randomSlider" type="range" min="0" max="100" th:value="${#ctx.session.randomness}" value="5"><br>
+                    <input id="count" name="randomness" type="hidden" th:value="${#ctx.session.randomness}" value="5">
                     <p>Randomness: <span id="randomAmount"></span></p>
                     <button id="saveChangesBtn" type="submit" formaction="/update">Save changes</button>
                 </form>
@@ -87,7 +87,6 @@
     slider.oninput = function (){
         count.innerHTML = this.value;
         currentCount.value = this.value;
-
     }
 </script>
 
