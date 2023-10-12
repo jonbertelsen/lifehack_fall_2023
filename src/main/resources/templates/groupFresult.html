@@ -18,7 +18,7 @@
         padding: 20px;
         border-radius: 10px;
         mso-border-shadow:yes;
-
+        max-width: 900px;
         width: 100%;
     }
 
@@ -52,46 +52,14 @@
                 <img src="images/logo.png"/>
             </header>
 
-            <h1>Soft Drink Sugar scale</h1>
+            <h1>Soft Drink Sugar verdict</h1>
 
 
             <h2>Find out exactly how much sugar you should be drinking per day!</h2>
 
 
-            <h4>Disclaimer: The data used to calculate the sugar intake results is basic public data that everyone has access to. This means
-                that if you have any special conditions or body disease that has to do with sugar, we would recommend that you contact
-                your doctor for the important information</h4>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ullamcorper sit amet risus nullam eget felis eget
-                nunc lobortis. Ut tristique et egestas quis ipsum suspendisse ultrices.
-                Adipiscing elit ut aliquam purus sit amet luctus venenatis.
-
-            </p>
-
-
-
-            <form action="modtagersider/modtager.html">
-            </form>
-
-                <h2>SOFT DRINKS LIST</h2>
-
-
-            Select a soft drink:
-                <form action="/softdrinks" method="post">
-                    <select name="d_id">
-                        <option th:each="drink : ${drinksList}"
-                                th:value="${drink.d_id}"
-                                th:text="${drink.d_name + ' - Sugar: ' + drink.sugar + ' grams'}"></option>
-                    </select>
-                    <input type="submit" value="Submit">
-                </form>
-
-
-
-
-        </div>
+        <div th:text="${#ctx.result}">result</div><br><br>
 
     </div>
 

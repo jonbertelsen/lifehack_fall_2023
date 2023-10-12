@@ -17,7 +17,7 @@ import java.util.List;
                     double positiveNumber = Math.abs(sugarPerDay);
                     return "There is " + sugar + " grams of sugar in the drink, " +
                             "and the average sugar intake is 30 grams per day, so you need to walk for " +
-                            (positiveNumber * 0.9) + " minutes today to burn off the extra " + positiveNumber + " grams sugar";
+                            (positiveNumber * 0.9) + " minutes today to burn off the extra " + positiveNumber + " grams of sugar";
                 } else {
                     return "You are good since there was " + sugar + " grams of sugar in the drink, " +
                             "so out of the 30 grams per day, you have " + sugarPerDay + " grams of sugar left to enjoy";

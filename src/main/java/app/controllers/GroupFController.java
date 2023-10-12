@@ -94,4 +94,12 @@ public class GroupFController
             throw new RuntimeException(e);
         }
     }
+
+    public static void calcResult(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
+        int d_id = Integer.parseInt(ctx.formParam("d_id"));
+        String result = GroupFCalculator.calculator(d_id, connectionPool);
+        System.out.println("Result: " + result); // Add this line for debugging
+        ctx.attribute("result", result);
+        ctx.render("groupFresult.html");
+    }
 }
