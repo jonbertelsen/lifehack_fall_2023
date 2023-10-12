@@ -172,7 +172,7 @@ hr{
     left:1rem;
     bottom:4rem;
     width:22rem;
-    height:10rem;
+    height:2rem;
 }
 
 #ignoregenres{
@@ -180,13 +180,13 @@ hr{
     left:1rem;
     bottom:6rem;
     width:22rem;
-    height:10rem;
+    height:2rem;
 }
 
 #addGenreBtn{
     position: relative;
     left:1.2rem;
-    bottom: 11.8rem;
+    /*top: 1rem;*/
     width:4rem;
     height:2rem;
     border: solid;
@@ -213,7 +213,7 @@ hr{
 #addGenreBlacklistBtn{
     position: relative;
     left:1.2rem;
-    bottom: 14rem;
+    /*top: 1rem;*/
     width:4rem;
     height:2rem;
     border: solid;
