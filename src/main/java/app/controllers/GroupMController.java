@@ -10,15 +10,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class GroupMController
-{
-    public static void  fineCalc(Context ctx, ConnectionPool connectionPool){
+public class GroupMController {
+    public static void fineCalc(Context ctx, ConnectionPool connectionPool) {
         int speed = Integer.parseInt(ctx.formParam("speed"));
         int zone = Integer.parseInt(ctx.formParam("zone"));
 
 
-        String sql = "select fee, \"klip eller frakendelse\" from fees where (? >= fromkph) and (? <= tokph) and zone = ?";
-
+        String sql = "select fee, \"extra_punishment\" from fees where (? >= fromkph) and (? <= tokph) and zone = ?";
 
 
         try (Connection connection = connectionPool.getConnection()) {
@@ -27,15 +25,15 @@ public class GroupMController
                 ps.setInt(2, speed);
                 ps.setInt(3, zone);
                 ResultSet rs = ps.executeQuery();
-                if (speed > 350){
+                if (speed > 350) {
                     throw new DatabaseException("UMULIGT! Din lille pis Aygo kan ikke køre så stærkt!");
                 }
-                if (speed <= zone ) {
-                    throw new DatabaseException("Du kører ikke for stærkt, prøv igen.");
+                if (speed <= zone) {
+                    throw new DatabaseException("Du kører ikke for stærkt, så du får ikke en bøde.");
                 }
                 if (rs.next()) {
                     int fee = rs.getInt("fee");
-                    String feeAddOn = rs.getString("klip eller frakendelse");
+                    String feeAddOn = rs.getString("extra_punishment");
                     ctx.attribute("fee", fee);
                     ctx.attribute("feeAddOn", feeAddOn);
                     ctx.render("groupM.html");

@@ -32,9 +32,9 @@
             </label>
 
         </div>
-        <button type="submit" formaction="/boderegner">Udregn Bøde</button>
+        <button type="submit" formaction="/boderegner">Beregn Bøde</button>
        <p class="errormessage" th:text="${#ctx.message}"></p>
-       <P class="fee" th:text="${#ctx.fee}"></P>
+       <P class="fee" th:text=" ${#ctx.fee}"></P>
        <P class="feeaddon" th:text="${#ctx.feeAddOn}" ></P>
    </form>
 
