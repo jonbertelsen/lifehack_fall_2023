@@ -17,7 +17,23 @@
 </header>
 
     <div class="resultBox">
-        <!--LAV TABLE TIL FILM HERINDE!-->
+        <table class="custom-table" id="">
+            <tr>
+                <th>Genre(s) chosen:</th>
+                <th>Remove genre(s):</th>
+            </tr>
+            <tr th:each="movie, rowStat : ${movieList}">
+                <td th:text="${movie}"></td>
+                <td>
+                    <form th:action="@{'/tasks.html?acton=done&id=' + ${rowStat.index}}" method="post">
+                        <input type="hidden" name="action" value="remove"/>
+                        <input type="hidden" name="id" th:value="${rowStat.index}"/>
+                        <input type="hidden" name="name" th:value="${movie.name}"/>
+                        <button type="submit" th:if="${#lists.isEmpty(movieList) == false}">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
     </div>
     <div id="box4">
         <button id="retakeButton">Retake!</button>

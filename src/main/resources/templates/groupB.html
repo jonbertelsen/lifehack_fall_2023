@@ -22,7 +22,7 @@
                 <div id="box1">
                     <h2 id="editMovieTxt">Edit Movie Criteria:</h2>
                     <h3 id="genreWhitelistTxt">Genre Whitelist:</h3>
-                    <form action="post">
+                    <form action="post" method="post">
                         <select id="genre" name="genre" size="3">
                             <option name="action" value="action">Action</option>
                             <option name="crime" value="crime">Crime</option>
@@ -38,9 +38,9 @@
                             <option name="war" value="war">War</option>
                             <option name="western" value="western">Western</option>
                         </select>
-                        <button id="addGenreBtn" type="submit">Add</button><br>
+                        <button id="addGenreBtn" type="submit" formaction="/update">Add</button><br>
                         <h3 id="genreBlacklistTxt">Genre Blacklist:</h3>
-                        <select id="ignoregenres" name="ignoregenres" size="3">
+                        <select id="ignoregenres" name="ignoregenre" size="3">
                             <option name="action" value="action">Action</option>
                             <option name="crime" value="crime">Crime</option>
                             <option name="drama" value="drama">Drama</option>
@@ -55,10 +55,10 @@
                             <option name="war" value="war">War</option>
                             <option name="western" value="western">Western</option>
                         </select>
-                        <button id="addGenreBlacklistBtn" type="submit">Add</button>
+                        <button id="addGenreBlacklistBtn" type="submit" formaction="/update">Add</button>
                         <input id="slider" class="randomSlider" name="randomness" type="range" min="0" max="100" value="0"><br>
                         <p>Randomness: <span id="randomAmount"></span></p>
-                        <button id="saveChangesBtn" type="submit">Save changes</button>
+                        <button id="saveChangesBtn" type="submit" formaction="/update">Save changes</button>
                     </form>
                 </div>
                 <div id="box2">
@@ -68,17 +68,14 @@
                             <th>Genre(s) chosen:</th>
                             <th>Remove genre(s):</th>
                         </tr>
-                        <tr th:each="genre, rowStat : ${session.genrelist}">
-                            <td th:text="${genre}"></td>
-                            <td>
-                                <form th:action="@{'/tasks.html?acton=done&id=' + ${rowStat.index}}" method="post">
-                                    <input type="hidden" name="action" value="remove"/>
-                                    <input type="hidden" name="id" th:value="${rowStat.index}"/>
-                                    <input type="hidden" name="name" th:value="${genre}"/>
-                                    <button type="submit" th:if="${#lists.isEmpty(session.genrelist) == false}">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
+                        <div class="removeList" th:unless="${#lists.isEmpty(session.genrelist)}">
+                            <form th:each="genre, rowStat : ${session.genrelist}" th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
+                                <input type="hidden" name="action" value="removegenre"/>
+                                <input type="hidden" name="id" th:value="${rowStat.index}"/>
+                                <input type="hidden" name="name" th:value="${genre}"/>
+                                <button type="submit"><span th:text="${genre}">Error</span><img th:src="@{/images/106830.png}" src="../public/images/106830.png" height="10px" width="10px"/></button>
+                            </form>
+                        </div>
                     </table>
                     <br>
                     <table class="custom-table" id="ignoredGenresTable">
@@ -86,23 +83,20 @@
                             <th>Ignored genres:</th>
                             <th>Remove genre(s):</th>
                         </tr>
-                        <tr th:each="genre, rowStat : ${session.ignoredgenrelist}">
-                            <td th:text="${genre}"></td>
-                            <td>
-                                <form th:action="@{'/tasks.html?acton=done&id=' + ${rowStat.index}}" method="post">
-                                    <input type="hidden" name="action" value="remove"/>
-                                    <input type="hidden" name="id" th:value="${rowStat.index}"/>
-                                    <input type="hidden" name="name" th:value="${genre}"/>
-                                    <button type="submit" th:if="${#lists.isEmpty(session.ignoredgenrelist) == false}">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
+                        <div class="removeList" th:unless="${#lists.isEmpty(session.ignoredgenrelist)}">
+                            <form th:each="genre, rowStat : ${session.ignoredgenrelist}" th:action="@{'/groupB.html?acton=done&id=' + ${rowStat.index}}" method="post">
+                                <input type="hidden" name="action" value="removeignoregenre"/>
+                                <input type="hidden" name="id" th:value="${rowStat.index}"/>
+                                <input type="hidden" name="name" th:value="${genre}"/>
+                                <button type="submit"><span th:text="${genre}">Error</span><img th:src="@{/images/106830.png}" src="../public/images/106830.png" height="10px" width="10px"/></button>
+                            </form>
+                        </div>
                     </table>
                 </div>
     </div>
         <div id="box4">
-            <form>
-                <button id="actionBtn" type="submit">ACTION!</button>
+            <form method="get">
+                <button id="actionBtn" type="submit" formaction="/actionBtn">ACTION!</button>
             </form>
         </div>
     </div>

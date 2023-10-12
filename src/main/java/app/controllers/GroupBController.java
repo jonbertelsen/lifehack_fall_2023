@@ -14,13 +14,14 @@ public class GroupBController
     private static List<String> genreList = new ArrayList<>();
     private static List<String> ignoredGenreList = new ArrayList<>();
     public static void getMovieResults(Context ctx, ConnectionPool connectionPool){
+        System.out.println("yahoo");
         List<String> genreList = ctx.sessionAttribute("genrelist");
         List<String> ignoredGenreList = ctx.sessionAttribute("ignoredgenrelist");
-        float randomness = Float.parseFloat(ctx.formParam("randomness"));
+        //float randomness = Float.parseFloat(ctx.formParam("randomAmount"));
         GroupBMapper bMap = new GroupBMapperCustomizable(10,25);
-        List<GroupBMovie> movieList  = bMap.getMovies(connectionPool, genreList, ignoredGenreList, randomness, false);
+        List<GroupBMovie> movieList  = bMap.getMovies(connectionPool, genreList, ignoredGenreList, 5, false);
         ctx.attribute("movies", movieList);
-        //ctx.render();
+        ctx.render("/groupBResultScreen.html");
     }
     private static void updateGenreList(Context ctx){
         String genre = ctx.formParam("genre");
