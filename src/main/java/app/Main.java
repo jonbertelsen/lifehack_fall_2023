@@ -2,7 +2,6 @@ package app;
 
 import app.config.ThymeleafConfig;
 import app.controllers.GroupBController;
-import app.controllers.GroupDController;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
@@ -36,7 +35,7 @@ public class Main
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));*/
         app.get("/",ctx -> ctx.render("groupB.html"));
-        //app.get("/",ctx -> GroupDController.renderChoosenGenre(ctx,connectionPool));
-        app.post("/updategenre", ctx -> GroupBController.renderChoosenGenre(ctx,connectionPool));
+        app.post("/update", ctx -> GroupBController.renderChoosenGenre(ctx,connectionPool));
+        app.post("/groupB.html",ctx -> GroupBController.removeSearchParameters(ctx,connectionPool));
     }
 }
