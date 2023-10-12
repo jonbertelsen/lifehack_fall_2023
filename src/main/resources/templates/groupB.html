@@ -24,43 +24,13 @@
                     <h2 id="editMovieTxt">Edit Movie Criteria:</h2>
                     <h3 id="genreWhitelistTxt">Genre Whitelist:</h3>
                     <form action="post" method="post">
-                        <select id="genre" name="genre" size="3">
-                            <option name="action" value="action">Action</option>
-                            <option name="crime" value="crime">Crime</option>
-                            <option name="drama" value="drama">Drama</option>
-                            <option name="fantasy" value="fantasy">Fantasy</option>
-                            <option name="horror" value="horror">Horror</option>
-                            <option name="comedy" value="comedy">Comedy</option>
-                            <option name="romance" value="romance">Romance</option>
-                            <option name="sciencefiction" value="sciencefiction">Science Fiction</option>
-                            <option name="sports" value="sports">Sports</option>
-                            <option name="thriller" value="thriller">Thriller</option>
-                            <option name="mystery" value="mystery">Mystery</option>
-                            <option name="war" value="war">War</option>
-                            <option name="western" value="western">Western</option>
-                            <option name="animation" value="animation">Animation</option>
-                            <option name="documentary" value="documentary">Documentary</option>
-                            <option name="adventure" value="adventure">Adventure</option>
+                        <select id="genre" name="genre">
+                            <option th:each="genre, statDex : ${#ctx.genres}" th:name="${genre}" th:value="${genre}" th:text="${genre}"></option>
                         </select>
                         <button id="addGenreBtn" type="submit" formaction="/update">Add</button><br>
                         <h3 id="genreBlacklistTxt">Genre Blacklist:</h3>
-                        <select id="ignoregenres" name="ignoregenre" size="3">
-                            <option name="action" value="action">Action</option>
-                            <option name="crime" value="crime">Crime</option>
-                            <option name="drama" value="drama">Drama</option>
-                            <option name="fantasy" value="fantasy">Fantasy</option>
-                            <option name="horror" value="horror">Horror</option>
-                            <option name="comedy" value="comedy">Comedy</option>
-                            <option name="romance" value="romance">Romance</option>
-                            <option name="sciencefiction" value="sciencefiction">Science Fiction</option>
-                            <option name="sports" value="sports">Sports</option>
-                            <option name="thriller" value="thriller">Thriller</option>
-                            <option name="mystery" value="mystery">Mystery</option>
-                            <option name="war" value="war">War</option>
-                            <option name="western" value="western">Western</option>
-                            <option name="animation" value="animation">Animation</option>
-                            <option name="documentary" value="documentary">Documentary</option>
-                            <option name="adventure" value="adventure">Adventure</option>
+                        <select id="ignoregenres" name="ignoregenre">
+                            <option th:each="genre, statDex : ${#ctx.genres}" th:name="${genre}" th:value="${genre}" th:text="${genre}"></option>
                         </select>
                         <button id="addGenreBlacklistBtn" type="submit" formaction="/update">Add</button>
                         <input id="slider" class="randomSlider" type="range" min="0" max="100" value="5"><br>
