@@ -70,6 +70,24 @@ public class GroupBMapperCustomizable implements GroupBMapper{
         return results;
     }
 
+    public List<String> getDistinctGenres(ConnectionPool connectionPool){
+        List<String> results = new ArrayList<>();
+        String sql = "select distinct genre from (select distinct SPLIT_part(a.genre,',', 1) as genre from public.movie as a where genre != '\\N' union select distinct split_part(b.genre, ',', 2) from public.movie as b where genre != '' union  select distinct split_part(c.genre, ',', 3) from public.movie as c where genre != '') where genre != ''";
+        try(Connection conn = connectionPool.getConnection()) {
+            try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                ResultSet rs = ps.executeQuery();
+                while(rs.next()){
+                    results.add(rs.getString("genre"));
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("sql: " + sql);
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        return results;
+    }
+
     public static void main(String args[]){
         GroupBMapper map = new GroupBMapperCustomizable(25,0);
         String USER = "postgres";
@@ -77,9 +95,13 @@ public class GroupBMapperCustomizable implements GroupBMapper{
         String URL = "jdbc:postgresql://localhost:5432/%s?currentSchema=public";
         String DB = "lifehack";
         ConnectionPool connectionPool = ConnectionPool.getInstance(USER, PASSWORD, URL, DB);
-        List<GroupBMovie> moves = map.getMovies(connectionPool, List.of("Drama"), List.of("Horror"), 5, false);
+        /*List<GroupBMovie> moves = map.getMovies(connectionPool, List.of("Drama"), List.of("Horror"), 5, false);
         for (GroupBMovie g: moves) {
             System.out.println(g.id + ": " + g.name);
+        }*/
+        List<String> genre = map.getDistinctGenres(connectionPool);
+        for (String g: genre) {
+            System.out.println(g);
         }
     }
 }
