@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<html lang="da" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <!-- Indlæs head-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
 <div th:replace="~{fragments :: head('Find java partner')}"></div>
@@ -9,14 +10,22 @@
 <div id="page-container">
     <div id="page-content">
         <!-- Indlæs header-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
-        <div th:replace="~{fragments :: header('Find java partner')}"></div>
+        <header th:fragment="header(title)">
+            <img th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png" width="80%"/>
+            <h1>Find en Java partner fra teamet <span th:text="${#ctx.teamname}"></span></h1>
+        </header>
 
         <!-- Vis klassebetegnelsen for holdet ved hjælp af Thymeleaf-expression -->
-        <p><span th:text="${#ctx.teamname}"></span></p>
-
         <form method="post">
             <!-- Opret et formular til at søge efter en makker -->
             <input type="text" name="username" placeholder="username"/>
+            <label for="java_level">Vælg din java erfarring :</label>
+            <select name="java_level" id="java_level">
+                <option disabled>Vælg erfarings niveau</option>
+                <option value="begynder">Begynder</option>
+                <option value="øvet">Øvet</option>
+                <option value="hardcore">Hardcore</option>
+            </select>
             <button type="submit" formaction="/find-partner">Find en makker</button>
 
             <!-- Vis eventuelle fejlbeskeder ved hjælp af Thymeleaf-expression -->
