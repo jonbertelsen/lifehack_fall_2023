@@ -39,7 +39,7 @@ public class Main
         app.get("/createuser", ctx -> ctx.render("createuser.html"));
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));*/
-        app.get("/",ctx -> GroupBController.renderChoosenGenre(ctx, connectionPool));
+        app.get("/groupB.html",ctx -> GroupBController.renderChoosenGenre(ctx, connectionPool));
         app.post("/update1", ctx -> GroupBController.updateGenreList(ctx,connectionPool));
         app.post("/update2", ctx -> GroupBController.updateIgnoreList(ctx,connectionPool));
         app.post("/update3", ctx -> GroupBController.renderChoosenGenre(ctx,connectionPool));
