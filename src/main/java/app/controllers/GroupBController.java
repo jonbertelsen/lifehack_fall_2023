@@ -53,9 +53,12 @@ public class GroupBController
     private static void renderScearhSite(Context ctx, ConnectionPool connectionPool){
         ctx.sessionAttribute("genrelist", genreList);
         ctx.sessionAttribute("ignoredgenrelist", ignoredGenreList);
-        ctx.sessionAttribute("randomness",ctx.formParam("randomness"));
+        if(ctx.sessionAttribute("randomness")) {
+            ctx.sessionAttribute("randomness", ctx.formParam("randomness"));
+        } else {
+            ctx.sessionAttribute("randomness", 5.0);
+        }
         if(genres == null){
-            ctx.sessionAttribute("randomness",ctx.formParam("randomness"));
             genres = GroupBMapperCustomizable.getStaticDistinctGenres(connectionPool);
         }
         ctx.attribute("genres", genres);
