@@ -39,15 +39,15 @@ public class GroupBMapperCustomizable implements GroupBMapper{
         StringBuilder sqllikeness = new StringBuilder();
         sqllikeness.append("random()*").append(randomness);
         if(ryanInMovie){
-            sqllikeness.append(" + case when \"ryanInMovie\" then ").append(ryanPrio).append("else 0 end");
+            sqllikeness.append(" + case when 'gosling_present' then ").append(ryanPrio).append(" else 0 end");
         }
-        if(!genres.isEmpty()){
+        if(genres != null && !genres.isEmpty()){
             for (String s: genres) {
                 sqllikeness.append(" + case when genre like '%").append(s).append("%' then ").append(genrePrio).append(" else 0 end");
             }
         }
         sqllikeness.append(") as likeness");
-        if(!ignoredGenres.isEmpty()){
+        if(ignoredGenres != null && !ignoredGenres.isEmpty()){
             for (String s: ignoredGenres) {
                 sqlWhere.append(" and not lower(genre) like '%").append(s).append("%'");
             }

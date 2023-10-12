@@ -14,7 +14,6 @@ public class GroupBController
     private static List<String> genreList = new ArrayList<>();
     private static List<String> ignoredGenreList = new ArrayList<>();
     public static void getMovieResults(Context ctx, ConnectionPool connectionPool){
-        System.out.println("yahoo");
         List<String> genreList = ctx.sessionAttribute("genrelist");
         List<String> ignoredGenreList = ctx.sessionAttribute("ignoredgenrelist");
         //float randomness = Float.parseFloat(ctx.formParam("randomAmount"));
