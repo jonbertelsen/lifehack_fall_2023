@@ -80,20 +80,6 @@ public class GroupFController
 
     }
 
-    public static void sugarCalculator(Context ctx, ConnectionPool connectionPool){
-
-        GroupFDrinks groupFDrinks= ctx.sessionAttribute("currentD_id");
-
-
-        try {
-            List<GroupFDrinks> sugarContent = GroupFMapper.getSugar(groupFDrinks.getD_id(), connectionPool);
-            ctx.attribute("sugarContent", sugarContent);
-            ctx.render("groupF.html");
-
-        } catch (DatabaseException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public static void calcResult(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         int d_id = Integer.parseInt(ctx.formParam("d_id"));
