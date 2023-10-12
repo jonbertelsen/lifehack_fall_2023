@@ -40,7 +40,9 @@ public class Main
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));*/
         app.get("/",ctx -> GroupBController.renderChoosenGenre(ctx, connectionPool));
-        app.post("/update", ctx -> GroupBController.renderChoosenGenre(ctx,connectionPool));
+        app.post("/update1", ctx -> GroupBController.updateGenreList(ctx,connectionPool));
+        app.post("/update2", ctx -> GroupBController.updateIgnoreList(ctx,connectionPool));
+        app.post("/update3", ctx -> GroupBController.renderChoosenGenre(ctx,connectionPool));
         app.post("/groupB.html",ctx -> GroupBController.removeSearchParameters(ctx,connectionPool));
         app.get("/actionBtn",ctx -> GroupBController.getMovieResults(ctx, connectionPool));
         app.get("/menu",ctx-> GroupBController.renderStart(ctx));

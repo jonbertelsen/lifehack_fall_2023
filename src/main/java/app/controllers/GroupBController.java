@@ -23,18 +23,14 @@ public class GroupBController
         ctx.attribute("movies", movieList);
         ctx.render("/groupBResultScreen.html");
     }
-    private static void updateGenreList(Context ctx){
+    public static void updateGenreList(Context ctx,ConnectionPool connectionPool){
         String genre = ctx.formParam("genre");
-        String ignoreGenre = ctx.formParam("ignoregenre");
-        if(genre !=null && !genreList.contains(genre)){
+        if(genre !=null && ignoredGenreList != null && !ignoredGenreList.contains(genre) && !genreList.contains(genre)){
             genreList.add(genre);
         }
-        if(ignoreGenre!=null && !ignoredGenreList.contains(ignoreGenre)){
-            ignoredGenreList.add(ignoreGenre);
-        }
+        renderScearhSite(ctx,connectionPool);
     }
     public static void renderChoosenGenre(Context ctx, ConnectionPool connectionPool) {
-        updateGenreList(ctx);
         renderScearhSite(ctx, connectionPool);
     }
     public static void removeSearchParameters(Context ctx, ConnectionPool connectionPool) {
@@ -68,5 +64,13 @@ public class GroupBController
     public static void renderStart(Context ctx) {
         ctx.sessionAttribute("randomness", 5.0);
         ctx.render("/groupB.html");
+    }
+
+    public static void updateIgnoreList(Context ctx, ConnectionPool connectionPool) {
+        String ignoreGenre = ctx.formParam("ignoregenre");
+        if(ignoreGenre!=null && genreList != null && !ignoredGenreList.contains(ignoreGenre) && !genreList.contains(ignoreGenre)){
+            ignoredGenreList.add(ignoreGenre);
+        }
+        renderScearhSite(ctx, connectionPool);
     }
 }

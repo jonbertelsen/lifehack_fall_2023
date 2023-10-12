@@ -25,16 +25,16 @@
                     <select id="genre" name="genre">
                         <option th:each="genre, statDex : ${#ctx.genres}" th:name="${genre}" th:value="${genre}" th:text="${genre}"></option>
                     </select>
-                    <button id="addGenreBtn" type="submit" formaction="/update">Add</button><br>
+                    <button id="addGenreBtn" type="submit" formaction="/update1">Add</button><br>
                     <h3 id="genreBlacklistTxt">Genre Blacklist:</h3>
                     <select id="ignoregenres" name="ignoregenre">
                         <option th:each="genre, statDex : ${#ctx.genres}" th:name="${genre}" th:value="${genre}" th:text="${genre}"></option>
                     </select>
-                    <button id="addGenreBlacklistBtn" type="submit" formaction="/update">Add</button>
+                    <button id="addGenreBlacklistBtn" type="submit" formaction="/update2">Add</button>
                     <input id="slider" class="randomSlider" type="range" min="0" max="100" th:value="${#ctx.session.randomness}" value="5"><br>
                     <input id="count" name="randomness" type="hidden" th:value="${#ctx.session.randomness}" value="5">
                     <p>Randomness: <span id="randomAmount"></span></p>
-                    <button id="saveChangesBtn" type="submit" formaction="/update">Save changes</button>
+                    <button id="saveChangesBtn" type="submit" formaction="/update3">Save changes</button>
                 </form>
             </div>
             <div id="box2">
