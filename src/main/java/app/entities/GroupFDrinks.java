@@ -1,4 +1,4 @@
-package app.persistence;
+package app.entities;
 
 public class GroupFDrinks {
 

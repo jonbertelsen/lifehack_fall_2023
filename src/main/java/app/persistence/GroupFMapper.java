@@ -1,5 +1,6 @@
 package app.persistence;
 
+import app.entities.GroupFDrinks;
 import app.exceptions.DatabaseException;
 
 import java.sql.Connection;

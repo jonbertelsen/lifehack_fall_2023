@@ -1,11 +1,14 @@
 package app.controllers;
 
+import app.entities.GroupFDrinks;
 import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
-import app.persistence.GroupFCalculator;
+import app.persistence.GroupFMapper;
 import app.persistence.UserMapper;
 import io.javalin.http.Context;
+
+import java.util.List;
 
 public class GroupFController
 {
@@ -62,9 +65,16 @@ public class GroupFController
         ctx.req().getSession().invalidate();
         ctx.redirect("/");
     }
-    public class Controller {
+    public static void softdrink(Context ctx, ConnectionPool connectionPool) {
 
-        private GroupFCalculator groupFCalculator;
+        try {
+            List<GroupFDrinks> drinksList = GroupFMapper.getAllDrinks(connectionPool);
+
+            ctx.attribute("drinksList", drinksList);
+            ctx.render("groupF.html");
+        } catch (DatabaseException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }
