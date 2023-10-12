@@ -19,12 +19,20 @@ public class GroupMController
 
         String sql = "select fee, \"klip eller frakendelse\" from fees where (? >= fromkph) and (? <= tokph) and zone = ?";
 
+
+
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, speed);
                 ps.setInt(2, speed);
                 ps.setInt(3, zone);
                 ResultSet rs = ps.executeQuery();
+                if (speed > 350){
+                    throw new DatabaseException("UMULIGT! Din lille pis Aygo kan ikke køre så stærkt!");
+                }
+                if (speed <= zone ) {
+                    throw new DatabaseException("Du kører ikke for stærkt, prøv igen.");
+                }
                 if (rs.next()) {
                     int fee = rs.getInt("fee");
                     String feeAddOn = rs.getString("klip eller frakendelse");
