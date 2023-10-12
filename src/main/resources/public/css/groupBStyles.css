@@ -7,7 +7,6 @@ body{
     background: #5b768d;
     display:flex;
     overflow-x: hidden;
-    overflow-y: hidden;
     margin:0;
 }
 
@@ -286,7 +285,7 @@ p{
     position: relative;
 }
 
-#ignoredGenresTable{
+#chosenGenresTable{
 
 }
 

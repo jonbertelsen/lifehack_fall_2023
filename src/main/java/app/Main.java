@@ -34,9 +34,11 @@ public class Main
         app.get("/createuser", ctx -> ctx.render("createuser.html"));
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));*/
-        app.get("/",ctx -> ctx.render("groupB.html"));
+        //app.get("/",ctx -> ctx.render("groupB.html"));
+        app.get("/", ctx -> GroupBController.renderStart(ctx));
         app.post("/update", ctx -> GroupBController.renderChoosenGenre(ctx,connectionPool));
         app.post("/groupB.html",ctx -> GroupBController.removeSearchParameters(ctx,connectionPool));
         app.get("/actionBtn",ctx -> GroupBController.getMovieResults(ctx, connectionPool));
+        app.get("/menu",ctx-> GroupBController.renderStart(ctx));
     }
 }

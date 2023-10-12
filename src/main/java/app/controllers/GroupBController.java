@@ -16,9 +16,9 @@ public class GroupBController
     public static void getMovieResults(Context ctx, ConnectionPool connectionPool){
         List<String> genreList = ctx.sessionAttribute("genrelist");
         List<String> ignoredGenreList = ctx.sessionAttribute("ignoredgenrelist");
-        //float randomness = Float.parseFloat(ctx.formParam("randomAmount"));
+        float randomness = Float.parseFloat(ctx.sessionAttribute("randomness"));
         GroupBMapper bMap = new GroupBMapperCustomizable(10,25);
-        List<GroupBMovie> movieList  = bMap.getMovies(connectionPool, genreList, ignoredGenreList, 5, false);
+        List<GroupBMovie> movieList  = bMap.getMovies(connectionPool, genreList, ignoredGenreList, randomness, false);
         ctx.attribute("movies", movieList);
         ctx.render("/groupBResultScreen.html");
     }
@@ -50,8 +50,14 @@ public class GroupBController
         renderScearhSite(ctx);
     }
     private static void renderScearhSite(Context ctx){
+        ctx.sessionAttribute("randomness",ctx.formParam("randomness"));
         ctx.sessionAttribute("genrelist", genreList);
         ctx.sessionAttribute("ignoredgenrelist", ignoredGenreList);
         ctx.render("groupB.html");
+    }
+
+    public static void renderStart(Context ctx) {
+        ctx.sessionAttribute("randomness","5.0");
+        ctx.render("/groupB.html");
     }
 }
