@@ -13,6 +13,7 @@ public class GroupBController
 {
     private static List<String> genreList = new ArrayList<>();
     private static List<String> ignoredGenreList = new ArrayList<>();
+    public static List<String> genres;
     public static void getMovieResults(Context ctx, ConnectionPool connectionPool){
         List<String> genreList = ctx.sessionAttribute("genrelist");
         List<String> ignoredGenreList = ctx.sessionAttribute("ignoredgenrelist");
@@ -34,7 +35,7 @@ public class GroupBController
     }
     public static void renderChoosenGenre(Context ctx, ConnectionPool connectionPool) {
         updateGenreList(ctx);
-        renderScearhSite(ctx);
+        renderScearhSite(ctx, connectionPool);
     }
     public static void removeSearchParameters(Context ctx, ConnectionPool connectionPool) {
         String action = ctx.formParam("action");
@@ -47,11 +48,15 @@ public class GroupBController
                 ignoredGenreList.remove(genre);
             }
         }
-        renderScearhSite(ctx);
+        renderScearhSite(ctx, connectionPool);
     }
-    private static void renderScearhSite(Context ctx){
+    private static void renderScearhSite(Context ctx, ConnectionPool connectionPool){
         ctx.sessionAttribute("genrelist", genreList);
         ctx.sessionAttribute("ignoredgenrelist", ignoredGenreList);
+        if(genres == null){
+            genres = GroupBMapperCustomizable.getStaticDistinctGenres(connectionPool);
+        }
+        ctx.attribute("genres", genres);
         ctx.render("groupB.html");
     }
 }

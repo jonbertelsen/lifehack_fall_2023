@@ -69,8 +69,11 @@ public class GroupBMapperCustomizable implements GroupBMapper{
         }
         return results;
     }
+    public List<String> getDistinctGenres(ConnectionPool connectionPool) {
+        return GroupBMapperCustomizable.getStaticDistinctGenres(connectionPool);
+    }
 
-    public List<String> getDistinctGenres(ConnectionPool connectionPool){
+    public static List<String> getStaticDistinctGenres(ConnectionPool connectionPool){
         List<String> results = new ArrayList<>();
         String sql = "select distinct genre from (select distinct SPLIT_part(a.genre,',', 1) as genre from public.movie as a where genre != '\\N' union select distinct split_part(b.genre, ',', 2) from public.movie as b where genre != '' union  select distinct split_part(c.genre, ',', 3) from public.movie as c where genre != '') where genre != ''";
         try(Connection conn = connectionPool.getConnection()) {
