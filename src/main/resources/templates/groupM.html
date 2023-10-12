@@ -1,45 +1,68 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<div th:replace="~{fragments :: head('title')}"></div>
+<div th:replace="~{fragments :: head('Bøde')}"></div>
 
 <body>
 
 <div id="page-container">
     <div id="page-content">
-        <div th:replace="~{fragments :: header('holda op')}"></div>
-
-   <form method="post">
-        <input type="text" name="speed" placeholder="speed"/>
-        <div id="tavle-content">
-            <label>
-                <input type="radio" name="zone" value="50">
-                <img src="../images/gruppem/50.png" alt="50" height="60" width="80" />
-            </label>
+        <div th:replace="~{fragments :: header('Beregn din fartbøde')}"></div>
 
 
-            <label>
-                <input type="radio" name="zone" value="80">
-                <img src="../images/gruppem/80.png" alt="50" height="60" width="80" />
-            </label>
-            <label>
-                <input type="radio" name="zone" value="50">
-                <img src="../images/gruppem/110.png" alt="50" height="60" width="80" />
-            </label>
-            <label>
-                <input type="radio" name="zone" value="50">
-                <img src="../images/gruppem/130.png" alt="50" height="60" width="80" />
-            </label>
+        <div class="boderegner">
+
+            <div class="bodeind">
+
+                <form method="post">
+                    <input type="text" name="speed" class="fart-input" placeholder="Hvor hurtigt kørete du"/>
+                    <div id="tavle-content">
+
+                        <div id="tavler">
+
+                            <label>
+                                <input type="radio" name="zone" value="50">
+                                <img src="../images/gruppem/50.png" alt="50" height="60" width="80" />
+                            </label>
+
+
+                            <label>
+                                <input type="radio" name="zone" value="80">
+                                <img src="../images/gruppem/80.png" alt="50" height="60" width="80" />
+                            </label>
+                            <label>
+                                <input type="radio" name="zone" value="50">
+                                <img src="../images/gruppem/110.png" alt="50" height="60" width="80" />
+                            </label>
+                            <label>
+                                <input type="radio" name="zone" value="50">
+                                <img src="../images/gruppem/130.png" alt="50" height="60" width="80" />
+                            </label>
+
+
+                        </div>
+
+                        <button type="submit" class="bode_button" formaction="/boderegner">Beregn Bøde</button>
+
+                    </div>
+
+                    <p class="errormessage" th:text="${#ctx.message}"></p>
+                    <P class="fee" th:text="${#ctx.fee}"></P>
+                    <P class="feeaddon" th:text="${#ctx.feeAddOn}" ></P>
+                </form>
+
+
+            </div>
+
 
         </div>
-        <button type="submit" formaction="/boderegner">Beregn Bøde</button>
-       <p class="errormessage" th:text="${#ctx.message}"></p>
-       <P class="fee" th:text=" ${#ctx.fee}"></P>
-       <P class="feeaddon" th:text="${#ctx.feeAddOn}" ></P>
-   </form>
+
+
 
         <div th:replace="~{fragments :: footer}"></div>
     </div>
 </div>
 </body>
 </html>
+
+

@@ -89,3 +89,51 @@ footer {
 [type=radio]:checked + img {
     outline: 2px solid #f00;
 }
+
+
+
+     /* GruppeM*/
+ .boderegner {
+     background-image: url('/images/gruppem/bode_backgound.webp'); /* Replace 'your-image.jpg' with your image file path */
+     background-size: cover;
+     background-position: center;
+     height: 500px; /* Adjust the height as needed */
+     min-width:600px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+/* GruppeM*/
+.bodeind {
+    background-color: rgba(255, 255, 255, 0.7); /* Background color with opacity */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* GruppeM*/
+.fart-input, select {
+    text-align: center;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* GruppeM*/
+.bode_button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#tavle-content{
+
+display:flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
