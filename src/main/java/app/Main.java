@@ -37,6 +37,13 @@ public class Main
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));
         app.get("/softdrinks", ctx -> GroupFController.softdrink(ctx, connectionPool));
-
+        //app.get("/softdrinks", ctx -> GroupFController.sugarCalculator(ctx, connectionPool));
+        app.post("/softdrinks", ctx -> {
+            int d_id = Integer.parseInt(ctx.formParam("d_id"));
+            String result = GroupFCalculator.calculator(d_id, connectionPool);
+            System.out.println("Result: " + result); // Add this line for debugging
+            ctx.attribute("result", result);
+            ctx.redirect("/softdrinks");
+        });
     }
 }

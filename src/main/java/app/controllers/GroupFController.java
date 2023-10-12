@@ -82,8 +82,11 @@ public class GroupFController
 
     public static void sugarCalculator(Context ctx, ConnectionPool connectionPool){
 
+        GroupFDrinks groupFDrinks= ctx.sessionAttribute("currentD_id");
+
+
         try {
-            List<GroupFDrinks> sugarContent = GroupFMapper.getSugar(d_id, connectionPool);
+            List<GroupFDrinks> sugarContent = GroupFMapper.getSugar(groupFDrinks.getD_id(), connectionPool);
             ctx.attribute("sugarContent", sugarContent);
             ctx.render("groupF.html");
 

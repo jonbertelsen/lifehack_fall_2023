@@ -33,7 +33,7 @@
     button {
         padding: 10px 20px;
         background-color: #4caf50;
-        color: white;
+
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -81,7 +81,9 @@
             </form>
 
                 <h2>SOFT DRINKS LIST</h2>
-                Select a soft drink:
+
+
+            Select a soft drink:
                 <form action="/softdrinks" method="post">
                     <select name="d_id">
                         <option th:each="drink : ${drinksList}"
@@ -89,7 +91,9 @@
                                 th:text="${drink.d_name + ' - Sugar: ' + drink.sugar + ' grams'}"></option>
                     </select>
                     <input type="submit" value="Submit">
+                    <div th:if="${result}" th:text="${result}"></div><br><br>
                 </form>
+
 
 
         </div>
