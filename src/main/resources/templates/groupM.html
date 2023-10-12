@@ -7,10 +7,36 @@
 
 <div id="page-container">
     <div id="page-content">
-        <div th:replace="~{fragments :: header('Pagetitle')}"></div>
+        <div th:replace="~{fragments :: header('holda op')}"></div>
+
+   <form method="post">
+        <input type="text" name="speed" placeholder="speed"/>
+        <div id="tavle-content">
+            <label>
+                <input type="radio" name="zone" value="50">
+                <img src="../images/gruppem/50.jpg" alt="50" height="60" width="80" />
+            </label>
 
 
+            <label>
+                <input type="radio" name="zone" value="80">
+                <img src="../images/gruppem/80.png" alt="50" height="60" width="80" />
+            </label>
+            <label>
+                <input type="radio" name="zone" value="50">
+                <img src="../images/gruppem/110.jpg" alt="50" height="60" width="80" />
+            </label>
+            <label>
+                <input type="radio" name="zone" value="50">
+                <img src="../images/gruppem/130.png" alt="50" height="60" width="80" />
+            </label>
 
+        </div>
+        <button type="submit" formaction="/boderegner">Udregn Bøde</button>
+       <p class="errormessage" th:text="${#ctx.message}"></p>
+       <P class="fee" th:text="${#ctx.fee}"></P>
+       <P class="feeaddon" th:text="${#ctx.feeAddOn}" ></P>
+   </form>
 
         <div th:replace="~{fragments :: footer}"></div>
     </div>

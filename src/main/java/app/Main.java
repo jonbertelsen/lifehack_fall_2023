@@ -1,6 +1,7 @@
 package app;
 
 import app.config.ThymeleafConfig;
+import app.controllers.GroupMController;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
@@ -33,7 +34,8 @@ public class Main
         app.get("/createuser", ctx -> ctx.render("createuser.html"));
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));
-
+        app.get("/boderegner", ctx ->  ctx.render("groupM.html"));
+        app.post("/boderegner",ctx -> GroupMController.fineCalc(ctx, connectionPool ));
 
     }
 }
