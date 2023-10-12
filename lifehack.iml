@@ -1,65 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17">
-    <output url="file://$MODULE_DIR$/target/classes" />
-    <output-test url="file://$MODULE_DIR$/target/test-classes" />
-    <content url="file://$MODULE_DIR$">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$" dumb="true">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: io.javalin:javalin:5.6.1" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains:annotations:24.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:2.0.7" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-server:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.toolchain:jetty-jakarta-servlet-api:5.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-webapp:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-servlet:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-security:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-xml:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-jetty-server:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-jetty-common:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-core-common:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-servlet:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-core-server:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-annotations:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-plus:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: jakarta.transaction:jakarta.transaction-api:2.0.0" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-jndi:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: jakarta.annotation:jakarta.annotation-api:2.1.1" level="project" />
-    <orderEntry type="library" name="Maven: org.ow2.asm:asm:9.5" level="project" />
-    <orderEntry type="library" name="Maven: org.ow2.asm:asm-commons:9.5" level="project" />
-    <orderEntry type="library" name="Maven: org.ow2.asm:asm-tree:9.5" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-jetty-api:11.0.15" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.21" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.8.21" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.8.21" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.21" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:2.0.7" level="project" />
-    <orderEntry type="library" name="Maven: io.javalin:javalin-rendering:5.6.1" level="project" />
-    <orderEntry type="library" name="Maven: org.thymeleaf:thymeleaf:3.1.1.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: ognl:ognl:3.3.4" level="project" />
-    <orderEntry type="library" name="Maven: org.javassist:javassist:3.29.0-GA" level="project" />
-    <orderEntry type="library" name="Maven: org.attoparser:attoparser:2.0.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.unbescape:unbescape:1.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.14.0-rc1" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.14.0-rc1" level="project" />
-    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.14.0-rc1" level="project" />
-    <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:4.0.3" level="project" />
-    <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.6.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.checkerframework:checker-qual:3.31.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-api:5.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-commons:1.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.apiguardian:apiguardian-api:1.1.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest:2.2" level="project" />
   </component>
 </module>

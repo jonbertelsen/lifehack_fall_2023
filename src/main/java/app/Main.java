@@ -34,8 +34,10 @@ public class Main
         app.get("/createuser", ctx -> ctx.render("createuser.html"));
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));
-        app.get("/coffee", ctx -> GroupDController.showPage(ctx));
 
+        // Coffee
+        app.get("/coffee", ctx -> GroupDController.showPage(ctx));
+        app.post("/coffeeprice", ctx -> GroupDController.getPrice(ctx));
 
     }
-}
+    }

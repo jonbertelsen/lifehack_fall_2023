@@ -12,26 +12,36 @@ h1 {
 
 h2{
     color: black;
-    front-size: 30px;
+    font-size: 30px;
 
 }
 
-.flexbox-gray{
+/* Opret en flex-container */
+.flex-container{
+    display: flex;
+    justify-content: center; /* Justerer elementerne vandret i midten */
 
+}
+
+
+/* Stil for flexbox-gray */
+.flexbox-gray {
     border: 5px solid black;
-    min-height: 350px;
-    flex-grow: 2;
-    flex-basis: 0;
+    min-height: 500px;
+    min-width: 400px;
+    flex-grow: 2; /* Ændrer flex-grow efter behov */
+    flex-basis: 50%; /* Ændrer flex-basis efter behov for at justere bredden */
     align-items: center;
     background-color: gainsboro;
-    margin-left:300px;
-    margin-right: 300px;
+    /*margin-left: 50px;
+    margin-right: 50px;*/
+    text-align: center; /* For at centrere indholdet i elementet */
+
+
 }
 
 .textboxs{
-
     text-align: center;
     font-size: 20px;
-
 }
 

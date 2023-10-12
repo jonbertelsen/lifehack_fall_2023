@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{fragments :: head('Pris')}"></div>
+
+<body>
+
+<div id="page-container">
+  <div id="page-content">
+    <div th:replace="~{fragments :: header('Coffee-Mixer')}"></div>
+    <br>
+    <h1>Samlet beløb: <span th:text="${#ctx.price}"></span> DKK </h1>
+    <img src="../public/images/coffecup.jpg" height="510" width="382" th:src="@{/images/coffecup.jpg}"/>
+
+    <a href="/">Go back to the main page</a>
+    <a href="/coffee">Go back to the coffee page</a>
+
+    <div th:replace="~{fragments :: footer}"></div>
+  </div>
+</div>
+</body>
+</html>
