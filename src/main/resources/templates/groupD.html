@@ -1,16 +1,68 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<link href="../public/css/cofstyle.css" th:href="@{/css/cofstyle.css}" rel="stylesheet"/>
 
-<div th:replace="~{fragments :: head('title')}"></div>
+<div th:replace="~{fragments :: head('Coffee-Mixer')}"></div>
 
 <body>
 
 <div id="page-container">
     <div id="page-content">
-        <div th:replace="~{fragments :: header('Pagetitle')}"></div>
+        <div th:replace="~{fragments :: header('Coffee-Mixer')}"></div>
+
+        <img src="../public/images/coffeemenuheader.jpg" height="158" width="707"
+             th:src="@{/images/coffeemenuheader.jpg}"/><br>
+
+        <div class="flex-container">
+            <div class="flexbox-gray">
+
+                <div class="textboxs">
+                    <form method="post">
+                        <h3>Choose coffee</h3>
+                        <input type="radio" id="Caffelatte" name="coffee_type" value="Caffelatte">
+                        <label for="Caffelatte"> Caffelatte</label><br>
+
+                        <input type="radio" id="Cappuccino" name="coffee_type" value="Cappuccino">
+                        <label for="Cappuccino"> Cappuccino</label><br>
+
+                        <input type="radio" id="Lungo" name="coffee_type" value="Lungo">
+                        <label for="Lungo"> Lungo</label><br>
+
+                        <input type="radio" id="Flat White" name="coffee_type" value="Flat White">
+                        <label for="Flat White"> Flat White</label><br>
+
+                        <input type="radio" id="Espresso" name="coffee_type" value="Espresso">
+                        <label for="Espresso"> Espresso</label><br>
+                        <br>
+
+                        <h3>Choose size</h3>
+                        <input type="radio" id="Small" name="coffee_size" value="Small">
+                        <label for="Small"> Small</label><br>
+                        <input type="radio" id="Medium" name="coffee_size" value="Medium">
+                        <label for="Medium"> Medium</label><br>
+                        <input type="radio" id="Large" name="coffee_size" value="Large">
+                        <label for="Large"> Large</label><br><br>
 
 
+                        <h3>Extra</h3>
+                        <input type="checkbox" id="Milk" name="coffee_addition" value="Milk">
+                        <label for="Milk">Milk</label><br>
+                        <input type="checkbox" id="Sugar" name="coffee_addition" value="Sugar">
+                        <label for="Sugar">Sugar</label><br>
+                        <input type="checkbox" id="Sirup" name="coffee_addition" value="Sirup">
+                        <label for="Sirup">Sirup</label><br>
+                        <input type="checkbox" id="None" name="coffee_addition" value="None">
+                        <label for="None">None</label><br><br>
 
+
+                        <button type="submit" formaction="/coffeeprice">Get the price</button>
+                        <br><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <img src="../public/images/coffeefooter.jpg" height="158" width="707" th:src="@{/images/coffeefooter.jpg}"/>
 
         <div th:replace="~{fragments :: footer}"></div>
     </div>
