@@ -42,5 +42,14 @@ public class Main
         app.post("/valuta", ctx -> GroupEController.getInput(ctx));
         app.get("/valuta", ctx -> GroupEController.valutaInit(ctx));
 
+        // Group B
+
+        app.get("/",ctx -> GroupBController.renderChoosenGenre(ctx, connectionPool));
+        app.post("/update1", ctx -> GroupBController.updateGenreList(ctx,connectionPool));
+        app.post("/update2", ctx -> GroupBController.updateIgnoreList(ctx,connectionPool));
+        app.post("/update3", ctx -> GroupBController.renderChoosenGenre(ctx,connectionPool));
+        app.post("/groupB.html",ctx -> GroupBController.removeSearchParameters(ctx,connectionPool));
+        app.get("/actionBtn",ctx -> GroupBController.getMovieResults(ctx, connectionPool));
+        app.get("/menu",ctx-> GroupBController.renderStart(ctx));
     }
 }
