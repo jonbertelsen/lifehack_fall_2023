@@ -20,11 +20,9 @@
     <div class="resultBox">
         <table class="custom-table" id="" th:unless="${#lists.isEmpty(movies)}">
             <tr>
-                <th>id</th>
                 <th>name</th>
             </tr>
             <tr th:each="movie, rowStat : ${#ctx.movies}">
-                <td th:text="${movie.id}"></td>
                 <td th:text="${movie.name}"></td>
             </tr>
         </table>
