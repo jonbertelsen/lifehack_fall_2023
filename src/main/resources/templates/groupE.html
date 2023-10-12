@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <div th:replace="~{fragments :: head('title')}"></div>
@@ -7,8 +8,8 @@
 
 <div id="page-container">
     <div id="page-content">
-        <div th:replace="~{fragments :: header('Pagetitle')}"></div>
-    <h1>Valutaomregner</h1>
+        <div th:replace="~{fragments :: header('Valutaomregner')}"></div>
+
 
         <form method="post">
 
@@ -22,13 +23,14 @@
 
             </select><br>
 
-           <a  id="result" th:text="${#ctx.calculatedValuta}">djfhd</a>
+           <a  id="result" th:text="${#ctx.calculatedValuta}">Value</a>
 
             <select name="endCurrency" id="endCurrency" >
                 <option th:each="valuta: ${#ctx.valutaList}" th:text="${valuta}"></option>
             </select>
             <br>
             <button formaction="/valuta" type="submit" value="Submit" >submit</button>
+
         </form>
 
 
