@@ -43,5 +43,6 @@ public class Main
         app.post("/update", ctx -> GroupBController.renderChoosenGenre(ctx,connectionPool));
         app.post("/groupB.html",ctx -> GroupBController.removeSearchParameters(ctx,connectionPool));
         app.get("/actionBtn",ctx -> GroupBController.getMovieResults(ctx, connectionPool));
+        app.get("/menu",ctx-> GroupBController.renderStart(ctx));
     }
 }

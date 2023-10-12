@@ -2,10 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link href="../public/css/groupBStyles.css" th:href="@{/css/groupBStyles.css}" rel="stylesheet"/>
+    <meta charset="UTF-8">
 </head>
 <body>
 
-<div>
+    <div>
         <header>
             <div class="navigationbar">
                 <form>
@@ -21,16 +22,17 @@
                 <h2 id="editMovieTxt">Edit Movie Criteria:</h2>
                 <h3 id="genreWhitelistTxt">Genre Whitelist:</h3>
                 <form action="post" method="post">
-                    <select id="genre" name="genre" size="3">
+                    <select id="genre" name="genre">
                         <option th:each="genre, statDex : ${#ctx.genres}" th:name="${genre}" th:value="${genre}" th:text="${genre}"></option>
                     </select>
                     <button id="addGenreBtn" type="submit" formaction="/update">Add</button><br>
                     <h3 id="genreBlacklistTxt">Genre Blacklist:</h3>
-                    <select id="ignoregenres" name="ignoregenre" size="3">
+                    <select id="ignoregenres" name="ignoregenre">
                         <option th:each="genre, statDex : ${#ctx.genres}" th:name="${genre}" th:value="${genre}" th:text="${genre}"></option>
                     </select>
                     <button id="addGenreBlacklistBtn" type="submit" formaction="/update">Add</button>
-                    <input id="slider" class="randomSlider" name="randomness" type="range" min="0" max="100" value="0"><br>
+                    <input id="slider" class="randomSlider" type="range" min="0" max="100" value="5"><br>
+                    <input id="count" name="randomness" type="hidden" value="5">
                     <p>Randomness: <span id="randomAmount"></span></p>
                     <button id="saveChangesBtn" type="submit" formaction="/update">Save changes</button>
                 </form>
@@ -79,10 +81,12 @@
 <script>
     var slider = document.getElementById("slider")
     var count = document.getElementById("randomAmount")
+    var currentCount = document.getElementById("count")
     count.innerHTML = slider.value;
 
     slider.oninput = function (){
         count.innerHTML = this.value;
+        currentCount.value = this.value;
 
     }
 </script>
