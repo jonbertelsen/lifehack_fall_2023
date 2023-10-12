@@ -4,6 +4,7 @@ import app.entities.GroupFDrinks;
 import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
+import app.persistence.GroupFCalculator;
 import app.persistence.GroupFMapper;
 import app.persistence.UserMapper;
 import io.javalin.http.Context;
@@ -12,6 +13,8 @@ import java.util.List;
 
 public class GroupFController
 {
+    private static int d_id;
+
     public static void login(Context ctx, ConnectionPool connectionPool)
     {
         String name = ctx.formParam("username");
@@ -69,12 +72,23 @@ public class GroupFController
 
         try {
             List<GroupFDrinks> drinksList = GroupFMapper.getAllDrinks(connectionPool);
-
             ctx.attribute("drinksList", drinksList);
             ctx.render("groupF.html");
         } catch (DatabaseException e) {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public static void sugarCalculator(Context ctx, ConnectionPool connectionPool){
+
+        try {
+            List<GroupFDrinks> sugarContent = GroupFMapper.getSugar(d_id, connectionPool);
+            ctx.attribute("sugarContent", sugarContent);
+            ctx.render("groupF.html");
+
+        } catch (DatabaseException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

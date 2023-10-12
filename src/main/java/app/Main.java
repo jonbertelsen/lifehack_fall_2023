@@ -4,6 +4,8 @@ import app.config.ThymeleafConfig;
 import app.controllers.GroupFController;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
+import app.persistence.GroupFCalculator;
+
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
 
@@ -35,7 +37,6 @@ public class Main
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));
         app.get("/softdrinks", ctx -> GroupFController.softdrink(ctx, connectionPool));
-
 
     }
 }
