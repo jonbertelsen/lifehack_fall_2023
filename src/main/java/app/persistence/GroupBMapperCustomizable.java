@@ -63,6 +63,7 @@ public class GroupBMapperCustomizable implements GroupBMapper{
                 }
             }
         } catch (SQLException e) {
+            System.out.println("sql: " + sql);
             e.printStackTrace();
             throw new RuntimeException(e);
         }
