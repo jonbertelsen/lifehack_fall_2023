@@ -12,8 +12,11 @@ import java.sql.SQLException;
 
 public class GroupMController {
     public static void fineCalc(Context ctx, ConnectionPool connectionPool) {
+
         int speed = Integer.parseInt(ctx.formParam("speed"));
+
         int zone = Integer.parseInt(ctx.formParam("zone"));
+
 
         String sql = "select fee, \"extra_punishment\" from fees where (? >= fromkph) and (? <= tokph) and zone = ?";
 
@@ -25,6 +28,7 @@ public class GroupMController {
                 ps.setInt(2, speed);
                 ps.setInt(3, zone);
                 ResultSet rs = ps.executeQuery();
+
                 //If the speed is over 350, the user will get an error message
                 if (speed > 350) {
                     throw new DatabaseException("UMULIGT! Din lille pis Aygo kan ikke køre så stærkt!");
