@@ -22,14 +22,14 @@
                 <th>Genre(s) chosen:</th>
                 <th>Remove genre(s):</th>
             </tr>
-            <tr th:each="movie, rowStat : ${movieList}">
+            <tr th:each="movie, rowStat : ${movies}">
                 <td th:text="${movie}"></td>
                 <td>
                     <form th:action="@{'/tasks.html?acton=done&id=' + ${rowStat.index}}" method="post">
                         <input type="hidden" name="action" value="remove"/>
                         <input type="hidden" name="id" th:value="${rowStat.index}"/>
                         <input type="hidden" name="name" th:value="${movie.name}"/>
-                        <button type="submit" th:if="${#lists.isEmpty(movieList) == false}">Remove</button>
+                        <button type="submit" th:if="${#lists.isEmpty(movies) == false}">Remove</button>
                     </form>
                 </td>
             </tr>
