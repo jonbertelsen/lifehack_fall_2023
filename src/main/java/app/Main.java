@@ -3,6 +3,7 @@ package app;
 import app.config.ThymeleafConfig;
 import app.controllers.*;
 import app.persistence.ConnectionPool;
+
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
 
@@ -31,16 +32,16 @@ public class Main
         app.post("/login", ctx -> UserController.login(ctx, connectionPool));
         app.get("/createuser", ctx -> ctx.render("createuser.html"));
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
-        app.get("/logout", ctx -> UserController.logout(ctx));
+        app.get("/logout", ctx -> UserController.logout(ctx))
 
         // Group A
 
         app.get("/groupA", ctx -> GroupAController.getFrontPage(ctx, connectionPool));
         app.post("/find-partner", ctx -> GroupAController.getStudentsName(ctx, connectionPool));
-
+      
         // Group B
+        //app.get("/",ctx -> GroupBController.renderChoosenGenre(ctx, connectionPool));
 
-      //  app.get("/",ctx -> GroupBController.renderChoosenGenre(ctx, connectionPool));
         app.post("/update1", ctx -> GroupBController.updateGenreList(ctx,connectionPool));
         app.post("/update2", ctx -> GroupBController.updateIgnoreList(ctx,connectionPool));
         app.post("/update3", ctx -> GroupBController.renderChoosenGenre(ctx,connectionPool));
@@ -51,6 +52,10 @@ public class Main
         // Group E
         app.post("/valuta", ctx -> GroupEController.getInput(ctx));
         app.get("/valuta", ctx -> GroupEController.valutaInit(ctx));
+
+        // Group F
+        app.get("/softdrinks", ctx -> GroupFController.softdrink(ctx, connectionPool));
+        app.post("/softdrinks", ctx -> GroupFController.calcResult(ctx, connectionPool));
 
     }
 }
