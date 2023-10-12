@@ -8,7 +8,6 @@ import io.javalin.rendering.template.JavalinThymeleaf;
 
 public class Main
 {
-
     private static final String USER = "postgres";
     private static final String PASSWORD = "postgres";
     private static final String URL = "jdbc:postgresql://localhost:5432/%s?currentSchema=public";
@@ -34,6 +33,14 @@ public class Main
         app.post("/createuser",ctx -> UserController.createuser(ctx, connectionPool ));
         app.get("/logout", ctx -> UserController.logout(ctx));
 
+        // Group A
+
+        app.get("/groupA", ctx -> GroupAController.getFrontPage(ctx, connectionPool));
+        app.post("/find-partner", ctx -> GroupAController.getStudentsName(ctx, connectionPool));
+
+        // Group E
+        app.post("/valuta", ctx -> GroupEController.getInput(ctx));
+        app.get("/valuta", ctx -> GroupEController.valutaInit(ctx));
 
     }
 }
