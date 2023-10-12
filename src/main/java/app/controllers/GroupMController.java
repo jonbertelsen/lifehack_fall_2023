@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+
 public class GroupMController {
     public static void fineCalc(Context ctx, ConnectionPool connectionPool) {
         int speed = Integer.parseInt(ctx.formParam("speed"));
@@ -45,6 +47,10 @@ public class GroupMController {
                     //If the speed is not in the database, the user will get an error message
                     throw new DatabaseException("Den indtastede hastighed findes ikke, prøv igen.");
                 }
+
+
+
+
             }
             //If no connection to the database can be made, the user will get an error message
         } catch (SQLException | DatabaseException e) {
