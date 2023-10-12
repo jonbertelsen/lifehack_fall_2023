@@ -24,13 +24,17 @@
 .form-item {
     min-width: 300px;
     padding: 10px;
+    box-sizing: unset;
 }
 
 .text-styling {
     color: white;
     font-size: 2em;
 }
-.text-styling a {
+div.text-styling footer a:link {
     color: white;
-    font-size: 2em;
+}
+
+div.text-styling footer a:visited {
+    color: red;
 }
