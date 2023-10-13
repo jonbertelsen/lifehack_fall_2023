@@ -13,14 +13,12 @@ h1 {
 }
 
 #page-container {
-  border: 1px solid red;
     display: flex;
     justify-content: center;
 }
 
 /* Green box */
 #page-content {
-    border: 1px solid blue;
     max-width: 800px;
     min-height: 600px;
     display: flex;
@@ -196,7 +194,6 @@ display:flex;
     display: flex;
     flex-flow: row wrap;
     gap: 10px;
-    border: 1px yellow solid;
     width: 620px;
 }
 
@@ -205,7 +202,6 @@ display:flex;
         display: flex;
         flex-flow: row wrap;
         gap: 10px;
-        border: 1px yellow solid;
         width: 410px;
     }
 }
