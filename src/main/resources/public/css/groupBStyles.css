@@ -80,7 +80,7 @@ hr{
 #box1{
     background-color: #f6c6a8;
     width:28rem;
-    height:36rem;
+    height:28rem;
     margin-right:4rem;
     margin-top: 4rem;
     border: #46425e 0.3rem solid;
@@ -90,7 +90,7 @@ hr{
 #box2{
     background-color: #f6c6a8;
     width:28rem;
-    height:36rem;
+    height:28rem;
     margin-top: 4rem;
     border: #46425e 0.3rem solid;
     border-radius: 0.3rem;
@@ -186,7 +186,7 @@ hr{
 #addGenreBtn{
     position: relative;
     left:1.2rem;
-    /*top: 1rem;*/
+    bottom: 4rem;
     width:4rem;
     height:2rem;
     border: solid;
@@ -213,7 +213,7 @@ hr{
 #addGenreBlacklistBtn{
     position: relative;
     left:1.2rem;
-    /*top: 1rem;*/
+    bottom:6rem;
     width:4rem;
     height:2rem;
     border: solid;

@@ -30,6 +30,7 @@ public class Main
         // user routes
         app.post("/login", ctx -> UserController.login(ctx, connectionPool));
         app.get("/createuser", ctx -> ctx.render("createuser.html"));
+
         app.post("/createuser", ctx -> UserController.createuser(ctx, connectionPool));
         app.get("/logout", ctx -> UserController.logout(ctx));
 
@@ -38,13 +39,12 @@ public class Main
         app.post("/find-partner", ctx -> GroupAController.getStudentsName(ctx, connectionPool));
 
         // Group B: Movies
-        //app.get("/",ctx -> GroupBController.renderChoosenGenre(ctx, connectionPool));
-        app.post("/update1", ctx -> GroupBController.updateGenreList(ctx, connectionPool));
-        app.post("/update2", ctx -> GroupBController.updateIgnoreList(ctx, connectionPool));
-        app.post("/update3", ctx -> GroupBController.renderChoosenGenre(ctx, connectionPool));
-        app.post("/groupB.html", ctx -> GroupBController.removeSearchParameters(ctx, connectionPool));
-        app.get("/actionBtn", ctx -> GroupBController.getMovieResults(ctx, connectionPool));
-        app.get("/menu", ctx -> GroupBController.renderStart(ctx));
+        app.post("/update1", ctx -> GroupBController.updateGenreList(ctx,connectionPool));
+        app.post("/update2", ctx -> GroupBController.updateIgnoreList(ctx,connectionPool));
+        app.post("/update3", ctx -> GroupBController.renderChoosenGenre(ctx,connectionPool));
+        app.post("/groupB.html",ctx -> GroupBController.removeSearchParameters(ctx,connectionPool));
+        app.get("/actionBtn",ctx -> GroupBController.getMovieResults(ctx, connectionPool));
+        app.get("/menu",ctx-> GroupBController.renderChoosenGenre(ctx, connectionPool));
 
         // Group D: Coffee
         app.get("/coffee", ctx -> GroupDController.showPage(ctx));
@@ -61,5 +61,6 @@ public class Main
         // Group M: Fee calculator
         app.get("/boderegner", ctx ->  ctx.render("groupM.html"));
         app.post("/boderegner",ctx -> GroupMController.fineCalc(ctx, connectionPool ));
+
     }
 }
