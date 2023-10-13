@@ -1,14 +1,85 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<div th:replace="~{fragments :: head('title')}"></div>
+<div th:replace="~{fragments :: head('Bøde')}"></div>
 
 <body>
+<audio id="audioPlayer" controls>
+    <source src="../images/gruppem/effect.mp3" type="audio/mpeg">
+</audio>
 
 <div id="page-container">
     <div id="page-content">
-        <div th:replace="~{fragments :: header('Pagetitle')}"></div>
+        <div th:replace="~{fragments :: header('Beregn din fartbøde')}"></div>
 
+
+        <div class="boderegner">
+
+            <div class="bodeind">
+
+                <form method="post">
+                    <input type="text" name="speed" class="fart-input" placeholder="Hvor hurtigt kørete du" required/>
+                    <div id="tavle-content">
+
+                        <div id="tavler" >
+
+                            <label>
+                                <input type="radio" name="zone" value="50" required>
+                                <img src="../images/gruppem/50.png" alt="50" height="60" width="80" />
+                            </label>
+
+                            <label>
+                                <input type="radio" name="zone" value="80">
+                                <img src="../images/gruppem/80.png" alt="50" height="60" width="80" />
+                            </label>
+                            <label>
+                                <input type="radio" name="zone" value="50">
+                                <img src="../images/gruppem/110.png" alt="50" height="60" width="80" />
+                            </label>
+                            <label>
+                                <input type="radio" name="zone" value="50">
+                                <img src="../images/gruppem/130.png" alt="50" height="60" width="80" />
+                            </label>
+
+
+                        </div>
+
+                        <button type="submit" onclick="checkAndPlayAudio()" class="bode_button" formaction="/boderegner">Beregn Bøde</button>
+
+                    </div>
+
+                    <p class="errormessage" th:text="${#ctx.message}"></p>
+                    <P class="fee" th:text="${#ctx.fee}"></P>
+                    <P class="feeaddon" th:text="${#ctx.feeAddOn}" ></P>
+
+
+
+
+                </form>
+
+
+
+                <script>
+                    // Define a function to handle the checking and audio playing
+                    function checkAndPlayAudio() {
+                        var feeAddOn = document.querySelector('ctx.feeaddon').textContent.trim();
+                        var audioPlayer = document.getElementById("audioPlayer");
+
+                        // Check the value with an if statement
+                        if (feeAddOn === "klip i kørekort") {
+                            console.log("The fee add-on is 'klip i kørekort'. Playing audio.");
+                            audioPlayer.play();
+                        }
+                    }
+
+                    // Add an event listener to ensure the page is fully loaded before running the code
+                    document.addEventListener("DOMContentLoaded", checkAndPlayAudio);
+                </script>
+
+            </div>
+
+
+        </div>
 
 
 
@@ -17,3 +88,5 @@
 </div>
 </body>
 </html>
+
+

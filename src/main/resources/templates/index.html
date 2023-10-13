@@ -6,21 +6,79 @@
 <body>
 
 <div id="page-container">
-
     <div id="page-content">
+        <div th:replace="~{fragments :: header('Lifehack website')}"></div>
 
-        <div th:replace="~{fragments :: header('Welcome')}"></div>
+        <div id="lifehack_menu">
 
-        <div class="centered-form">
-            <form method="post">
+            <div class="lifehack_item">
+                <a href="/groupA">
+                    <div class="lifehack-item-image">
+                        <img th:src="@{/images/matrix.png}"/>
+                    </div>
+                    <div class="lifehack_title">
+                        Java Partner
+                    </div>
+                </a>
+            </div>
 
-                <input type="text" name="username" placeholder="username"/>
-                <input type="password" name="password" placeholder="password"/>
-                <button type="submit" formaction="/login">Log på</button>
+            <div class="lifehack_item">
+                <a href="/menu">
+                    <div class="lifehack-item-image">
+                        <img th:src="@{/images/gosling.png}"/>
+                    </div>
+                    <div class="lifehack_title">
+                        Movie Matcher
+                    </div>
+                </a>
+            </div>
 
-                <p class="errormessage" th:text="${#ctx.message}"></p>
-            </form>
+            <div class="lifehack_item">
+                <a href="/coffee">
+                    <div class="lifehack-item-image">
+                        <img th:src="@{/images/coffeemixer.png}"/>
+                    </div>
+                    <div class="lifehack_title">
+                        Coffee Mixer
+                    </div>
+                </a>
+            </div>
+
+            <div class="lifehack_item">
+                <a href="/valuta">
+                    <div class="lifehack-item-image">
+                        <img th:src="@{/images/valuta.png}"/>
+                    </div>
+                    <div class="lifehack_title">
+                        Currency Converter
+                    </div>
+                </a>
+            </div>
+
+            <div class="lifehack_item">
+                <a href="/softdrinks">
+                    <div class="lifehack-item-image">
+                        <img th:src="@{/images/softdrinks.png}"/>
+                    </div>
+                    <div class="lifehack_title">
+                        Softdrink Advisor
+                    </div>
+                </a>
+            </div>
+
+            <div class="lifehack_item">
+                <a href="/boderegner">
+                    <div class="lifehack-item-image">
+                        <img th:src="@{/images/speed.png}"/>
+                    </div>
+                    <div class="lifehack_title">
+                        Speeding Calculator
+                    </div>
+                </a>
+            </div>
+
         </div>
+
         <div th:replace="~{fragments :: footer}"></div>
     </div>
 </div>
