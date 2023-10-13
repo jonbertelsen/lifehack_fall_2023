@@ -18,45 +18,37 @@
             <div class="bodeind">
 
                 <form method="post">
-                    <input type="text" name="speed" class="fart-input" placeholder="Hvor hurtigt kørete du" required/>
+                    <input type="text" name="speed" class="fart-input" placeholder="Hvor hurtigt kørte du?" required/>
                     <div id="tavle-content">
 
-                        <div id="tavler" >
+                        <div id="tavler">
 
-                            <label>
-                                <input type="radio" name="zone" value="50" required>
-                                <img src="../images/gruppem/50.png" alt="50" height="60" width="80" />
-                            </label>
+                            <input id="50" class="hidden-radio" type="radio" name="zone" value="50" required>
+                            <label for="50" class="image-radio" data-image="50-image"></label>
 
-                            <label>
-                                <input type="radio" name="zone" value="80">
-                                <img src="../images/gruppem/80.png" alt="50" height="60" width="80" />
-                            </label>
-                            <label>
-                                <input type="radio" name="zone" value="50">
-                                <img src="../images/gruppem/110.png" alt="50" height="60" width="80" />
-                            </label>
-                            <label>
-                                <input type="radio" name="zone" value="50">
-                                <img src="../images/gruppem/130.png" alt="50" height="60" width="80" />
-                            </label>
+                            <input id="80" class="hidden-radio" type="radio" name="zone" value="80" required>
+                            <label for="80" class="image-radio" data-image="80-image"></label>
 
+                            <input id="110" class="hidden-radio" type="radio" name="zone" value="110" required>
+                            <label for="110" class="image-radio" data-image="110-image"></label>
+
+                            <input id="130" class="hidden-radio" type="radio" name="zone" value="130" required>
+                            <label for="130" class="image-radio" data-image="130-image"></label>
 
                         </div>
 
-                        <button type="submit" onclick="checkAndPlayAudio()" class="bode_button" formaction="/boderegner">Beregn Bøde</button>
+                        <button type="submit" onclick="checkAndPlayAudio()" class="bode_button"
+                                formaction="/boderegner">Beregn Bøde
+                        </button>
 
                     </div>
 
                     <p class="errormessage" th:text="${#ctx.message}"></p>
                     <P class="fee" th:text="${#ctx.fee}"></P>
-                    <P class="feeaddon" th:text="${#ctx.feeAddOn}" ></P>
-
-
+                    <P class="feeaddon" th:text="${#ctx.feeAddOn}"></P>
 
 
                 </form>
-
 
 
                 <script>
@@ -80,7 +72,6 @@
 
 
         </div>
-
 
 
         <div th:replace="~{fragments :: footer}"></div>

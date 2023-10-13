@@ -68,6 +68,11 @@ header {
     align-items: center;
 }
 
+header > div > a {
+    display: flex;
+    justify-content: center;
+}
+
 footer {
     margin-top: 30px;
 }
@@ -76,30 +81,65 @@ footer {
     flex-direction: row;
 }
 
-
-/* HIDE RADIO */
-[type=radio] {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
+/* Hide the default radio button */
+.hidden-radio {
+    display: none;
 }
 
-/* IMAGE STYLES */
-[type=radio] + img {
+/* Style for the label with default image */
+.image-radio {
+    display: inline-block;
+    width: 80px; /* Adjust size as needed */
+    height: 80px; /* Adjust size as needed */
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding:10px;
     cursor: pointer;
+    margin-right: 10px;
 }
 
-/* CHECKED STYLES */
-[type=radio]:checked + img {
-    outline: 2px solid #f00;
+/* Style each image */
+.image-radio[data-image="50-image"] {
+    background-image: url('../images/gruppem/50.png');
+}
+
+.image-radio[data-image="80-image"] {
+    background-image: url('../images/gruppem/80.png');
+}
+
+.image-radio[data-image="110-image"] {
+    background-image: url('../images/gruppem/110.png');
+}
+
+.image-radio[data-image="130-image"] {
+    background-image: url('../images/gruppem/130.png');
 }
 
 
+/* Style for the label when the associated radio button is selected */
+.hidden-radio:checked + .image-radio[data-image="50-image"] {
+    background-image: url('../images/gruppem/50.png');
+    filter: brightness(80%) blur(3px);
+}
+
+.hidden-radio:checked + .image-radio[data-image="80-image"] {
+    background-image: url('../images/gruppem/80.png');
+    filter: brightness(80%) blur(3px);
+}
+
+.hidden-radio:checked + .image-radio[data-image="110-image"] {
+    background-image: url('../images/gruppem/110.png');
+    filter: brightness(80%) blur(3px);
+}
+
+.hidden-radio:checked + .image-radio[data-image="130-image"] {
+    background-image: url('../images/gruppem/130.png');
+    filter: brightness(80%) blur(3px);
+}
 
      /* GruppeM*/
  .boderegner {
-     background-image: url('/images/gruppem/bode_backgound.webp'); /* Replace 'your-image.jpg' with your image file path */
+     background-image: url('../images/gruppem/bode_backgound.webp'); /* Replace 'your-image.jpg' with your image file path */
      background-size: cover;
      background-position: center;
      height: 500px; /* Adjust the height as needed */
@@ -146,6 +186,8 @@ display:flex;
 #tavler{
     display:flex;
     justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* Frontpage */
@@ -191,6 +233,6 @@ display:flex;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
     text-align: center;
-
+    padding:3px;
 
 }
