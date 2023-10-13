@@ -2,14 +2,173 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <div th:replace="~{fragments :: head('title')}"></div>
+<style>
+    /*header */
+    .header {
+        background-color: white;
+        padding: 30px;
+        text-align: center;
+        font-size: 45px;
+        border-radius:30px;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background-color:#3177ff;
+        margin: 0;
+        display: flex;
+        justify-content: center;
 
+        height: 100vh;
+    }
+
+    .container {
+        background-color:#3177ff;
+        padding: 10px;
+        border-radius: 10px;
+        display: -webkit-flex;
+        display: flex;
+        width: 1200px;
+    }
+    /* three unequal columns that sit next to each other */
+    .column {
+        padding: 20px;
+    }
+    /* Left and right column flex */
+    .column.side {
+        background-color:white;
+        align-content: center;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        border-radius: 35px;
+        border-color: black;
+        border-style: solid;
+        border-radius: 35px;
+        margin:0 5px;
+    }
+
+    /* Middle column */
+    .column.middle {
+        background-color:white;
+        -webkit-flex: 2;
+        -ms-flex: 2;
+        flex: 2;
+        border-color: black;
+        border-style:solid;
+        border-radius: 35px;
+
+    }
+
+
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+</style>
 <body>
 
 <div id="page-container">
     <div id="page-content">
-        <div th:replace="~{fragments :: header('Pagetitle')}"></div>
+        <div th:replace="~{fragments :: header('')}"></div>
+        <div class="header">
+            <header>
+                <img src="images/GruppeFimages/Abadrink-logo.png" height="228" width="225"/>
+            </header>
+        </div>
+
+        <div class="container">
+
+            <div class="column side">
+                <h2>SPONSORS</h2>
+                <p>CPH-BUSINESS
+                    -Get your masters in coding here!
+                </p>
 
 
+
+
+
+                <img src="/images/GruppeFimages/img.png" height="200" width="300" border-radius=35px alt="cph-business academy"/>
+                <h2>COMING SOON!</h2>
+
+            </div>
+            <div class="column middle">
+
+
+
+                <h1>Soft Drink Sugar scale</h1>
+
+
+                <h2>Find out exactly how much sugar you should be drinking per day!</h2>
+
+
+                <h4>Disclaimer: The data used to calculate the sugar intake results is basic public data that everyone has access to. This means
+                    that if you have any special conditions or body disease that has to do with sugar, we would recommend that you contact
+                    your doctor for the important information</h4>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ullamcorper sit amet risus nullam eget felis eget
+                    nunc lobortis. Ut tristique et egestas quis ipsum suspendisse ultrices.
+                    Adipiscing elit ut aliquam purus sit amet luctus venenatis.
+
+                </p>
+
+
+
+                <form action="modtagersider/modtager.html">
+
+
+
+                </form>
+
+                    <h2>SOFT DRINKS LIST</h2>
+                    Select a soft drink:
+                    <form action="/softdrinks" method="post">
+                        <select name="d_id">
+                            <option th:each="drink : ${drinksList}"
+                                    th:value="${drink.d_id}"
+                                    th:text="${drink.d_name + ' - Sugar: ' + drink.sugar + ' grams'}"></option>
+                        </select>
+                        <button type="submit">Submit</button>
+                    </form>
+            </div>
+
+            <div class="column side">
+                <h2>Some useful links </h2>
+                <p>National Institute of Public Health:</p>
+                <a href="https://www.sdu.dk/en/sif">SDU.DK</a>
+
+
+                <p>Blood sugar and measurement:</p>
+                <a href="https://diabetes.dk/diabetes-2/fakta-om-type-2/blodsukker-og-maling">DIABETES.DK</a>
+
+            </div>
+
+
+
+        </div>
+
+
+        <footer align-elements="center">
+            <p>&copy; 2023 Abadrink. All rights reserved.</p>
+            <p>1234 business Street, Cphville, Lyngby, 93736</p>
+            <p>Email:Abadrink42@gmail.com
+        </footer>
 
 
         <div th:replace="~{fragments :: footer}"></div>

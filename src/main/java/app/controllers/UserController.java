@@ -6,8 +6,6 @@ import app.persistence.ConnectionPool;
 import app.persistence.UserMapper;
 import io.javalin.http.Context;
 
-import java.util.List;
-
 public class UserController
 {
     public static void login(Context ctx, ConnectionPool connectionPool)
@@ -19,12 +17,12 @@ public class UserController
             User user = UserMapper.login(name, password, connectionPool);
             ctx.sessionAttribute("currentUser", user);
             ctx.attribute("message", "Du er nu logget ind");
-            ctx.render("index.html");
+            ctx.render("login.html");
         }
         catch (DatabaseException e)
         {
             ctx.attribute("message", e.getMessage());
-            ctx.render("index.html");
+            ctx.render("login.html");
         }
     }
 
@@ -41,7 +39,7 @@ public class UserController
             {
                 UserMapper.createuser(name, password1, connectionPool);
                 ctx.attribute("message", "Du er nu oprette. Log på for at komme i gang.");
-                ctx.render("index.html");
+                ctx.render("login.html");
 
             }
             catch (DatabaseException e)

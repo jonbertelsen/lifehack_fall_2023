@@ -1,26 +1,31 @@
 /* Stylesheet for the application */
 
+#result{
+    border: red;
+
+}
+
 h1 {
     color: #369;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 3rem;
+    text-align: center;
 }
 
 #page-container {
-  /*  border: 1px solid red; */
+  border: 1px solid red;
     display: flex;
     justify-content: center;
 }
 
 /* Green box */
 #page-content {
-   /* border: 1px solid blue;*/
+    border: 1px solid blue;
     max-width: 800px;
     min-height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .centered-form form {
@@ -69,4 +74,123 @@ footer {
 
 .row {
     flex-direction: row;
+}
+
+
+/* HIDE RADIO */
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+    cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+    outline: 2px solid #f00;
+}
+
+
+
+     /* GruppeM*/
+ .boderegner {
+     background-image: url('/images/gruppem/bode_backgound.webp'); /* Replace 'your-image.jpg' with your image file path */
+     background-size: cover;
+     background-position: center;
+     height: 500px; /* Adjust the height as needed */
+     min-width:600px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+/* GruppeM*/
+.bodeind {
+    background-color: rgba(255, 255, 255, 0.7); /* Background color with opacity */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* GruppeM*/
+.fart-input, select {
+    text-align: center;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* GruppeM*/
+.bode_button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#tavle-content{
+
+display:flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#tavler{
+    display:flex;
+    justify-content: center;
+}
+
+/* Frontpage */
+
+#lifehack_menu {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    border: 1px yellow solid;
+    width: 620px;
+}
+
+@media screen and (max-width: 620px) {
+    #lifehack_menu {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 10px;
+        border: 1px yellow solid;
+        width: 410px;
+    }
+}
+
+.lifehack_item {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.lifehack_item a {
+    text-decoration: none;
+}
+
+.lifehack-item-image {
+}
+
+.lifehack-item-image img {
+    width: 200px;
+    height: 200px;
+}
+
+.lifehack_title {
+    color: white;
+    background-color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+
+
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="da" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Indlæs head-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
+<div th:replace="~{fragments :: head('Din java partner')}"></div>
+<body class="body">
+
+<div id="page-container" class="java-partner">
+    <div id="page-content">
+        <!-- Indlæs header-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
+        <header th:fragment="header(title)">
+            <img class="white-logo" th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png" width="80%"/>
+            <h1 class="text-styling">Tillykke <span th:text="${#ctx.username}"></span>!</h1>
+        </header>
+
+        <!-- Vis resultatet af partner-søgningen ved hjælp af Thymeleaf-udtryk -->
+        <h2 class="text-styling">Vi har fundet din nye java partner!!</h2>
+
+        <h1 class="text-styling"> Din partner er <span th:text="${#ctx.partnerName}"></span></h1>
+
+        <!-- Indlæs footer-sektionen fra en anden skabelon ved hjælp af Thymeleaf -->
+        <div class="text-styling" th:replace="~{fragments :: footer}"></div>
+    </div>
+</div>
+</body>
+</html>

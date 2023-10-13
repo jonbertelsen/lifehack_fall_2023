@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{fragments :: head('title')}"></div>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color:#3177ff;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        mso-border-shadow:yes;
+        max-width: 900px;
+        width: 100%;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+</style>
+<body>
+
+<div id="page-container">
+    <div id="page-content">
+        <div th:replace="~{fragments :: header('')}"></div>
+
+        <div class="container">
+
+            <header>
+
+                <img src="images/GruppeFimages/Abadrink-logo.png" height="228" width="225"/></header>
+
+            <h1>Soft Drink Sugar verdict</h1>
+
+
+            <h2>Find out exactly how much sugar you should be drinking per day!</h2>
+
+
+
+        <div th:text="${#ctx.result}">result</div><br><br>
+
+    </div>
+
+        <a href="/softdrinks"> <button type="submit">Back to sugarpage</button></a>
+
+        <footer>
+            <p>Her er en footer</p>
+        </footer>
+
+
+        <div th:replace="~{fragments :: footer}"></div>
+    </div>
+</div>
+</body>
+</html>

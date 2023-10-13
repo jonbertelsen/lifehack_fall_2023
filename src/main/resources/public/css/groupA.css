@@ -1,0 +1,40 @@
+.body{
+    margin: 0 auto;
+}
+
+.java-partner {
+    background-image: url("../images/matrix.gif");
+    background-size: cover;
+    margin: 0 auto;
+    height: 100vh;
+    min-width: 100%;
+}
+.white-logo {
+    filter: brightness(0) invert(1);
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form-item {
+    min-width: 300px;
+    padding: 10px;
+    box-sizing: unset;
+}
+
+.text-styling {
+    color: white;
+    font-size: 2em;
+}
+div.text-styling footer a:link {
+    color: white;
+}
+
+div.text-styling footer a:visited {
+    color: red;
+}
