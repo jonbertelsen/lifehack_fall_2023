@@ -7,35 +7,36 @@
 </head>
 <body>
 
-<div>
-<header>
-    <div class="navigationbar">
-        <form>
-            <button id="menuBtn" type="submit" formaction="/menu">Menu</button>
-        </form>
-        <a href="/">
-        <img id="logo" th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png"/>
-        </a>
-    </div>
-    <hr>
-</header>
+<div class="page-container">
+    <div class="page-content">
+        <header>
+            <div class="navigationbar">
+                <form>
+                    <button id="menuBtn" type="submit" formaction="/menu">Menu</button>
+                </form>
+                <a href="/">
+                    <img id="logo" th:src="@{/images/lifehack.png}" src="../public/images/lifehack.png"/>
+                </a>
+            </div>
+            <hr>
+        </header>
 
-    <div class="resultBox">
-        <table class="custom-table" id="" th:unless="${#lists.isEmpty(movies)}">
-            <tr>
-                <th>name</th>
-            </tr>
-            <tr th:each="movie, rowStat : ${#ctx.movies}">
-                <td th:text="${movie.name}"></td>
-            </tr>
-        </table>
+        <div class="resultBox">
+            <table class="custom-table" id="" th:unless="${#lists.isEmpty(movies)}">
+                <tr>
+                    <th>Recommended movies for you</th>
+                </tr>
+                <tr th:each="movie, rowStat : ${#ctx.movies}">
+                    <td th:text="${movie.name}"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="box4">
+            <form>
+                <button id="retakeButton" formaction="/menu" type="submit">Retake!</button>
+            </form>
+        </div>
     </div>
-    <div id="box4">
-        <form>
-            <button id="retakeButton" formaction="/menu" type="submit">Retake!</button>
-        </form>
-    </div>
-
 </div>
 </body>
 </html>

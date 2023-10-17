@@ -2,18 +2,11 @@
 
 /*Overskift*/
 /* Overskrift */
-h1 {
+.flex-container h3  {
     color: saddlebrown;
-
-    font-size: 70px;
     text-align: center; /* Tilføj denne linje for at centrere teksten */
     margin-top: 20px; /* Tilpas toppadding efter behov */
-}
-
-h2{
-    color: black;
-    font-size: 30px;
-
+    font-size: 2em;
 }
 
 /* Opret en flex-container */
@@ -28,7 +21,8 @@ h2{
 .flexbox-gray {
     border: 5px solid black;
     min-height: 500px;
-    min-width: 400px;
+    min-width: 300px;
+    flex-direction: column;
     flex-grow: 2; /* Ændrer flex-grow efter behov */
     flex-basis: 50%; /* Ændrer flex-basis efter behov for at justere bredden */
     align-items: center;
@@ -36,12 +30,26 @@ h2{
     /*margin-left: 50px;
     margin-right: 50px;*/
     text-align: center; /* For at centrere indholdet i elementet */
-
-
 }
 
-.textboxs{
-    text-align: center;
-    font-size: 20px;
+.textboxs label {
+    display: inline-block;
+    text-align: left;
+    padding: 10px;
+    font-size: 25px;
+    width: 130px;
+}
+
+.textboxs button {
+    font-size: 1.5rem;
+    padding:15px;
+    border-radius: 20px;
+    background-color:saddlebrown;
+    color: white;
+}
+
+.coffeeimage {
+    max-width: 80%;
+    height: auto;
 }
 

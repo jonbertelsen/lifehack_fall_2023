@@ -28,7 +28,8 @@
         border-radius: 10px;
         display: -webkit-flex;
         display: flex;
-        width: 1200px;
+        flex-wrap: wrap;
+
     }
 
     /* three unequal columns that sit next to each other */
@@ -40,26 +41,32 @@
     .column.side {
         background-color: white;
         align-content: center;
-        -webkit-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
+        flex: 1 1;
         border-radius: 35px;
         border-color: black;
         border-style: solid;
         border-radius: 35px;
         margin: 0 5px;
+        min-width: 220px;
+    }
+
+    .column.side.left {
+        order: 1;
+    }
+
+    .column.side.right {
+        order: 3;
     }
 
     /* Middle column */
     .column.middle {
         background-color: white;
-        -webkit-flex: 2;
-        -ms-flex: 2;
-        flex: 2;
+        flex: 2 1;
         border-color: black;
         border-style: solid;
         border-radius: 35px;
-
+        min-width: 320px;
+        order: 2;
     }
 
 
@@ -69,6 +76,8 @@
         margin-bottom: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
+        min-width: 220px;
+        order: 3;
     }
 
     button {
@@ -79,6 +88,11 @@
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
+    }
+
+    .column1-image {
+        max-width: 100%;
+        border-radius: 20px;
     }
 </style>
 <body>
@@ -94,14 +108,13 @@
 
         <div class="container">
 
-            <div class="column side">
+            <div class="column side left">
                 <h2>SPONSORS</h2>
                 <p>CPH-BUSINESS
                     -Get your masters in coding here!
                 </p>
 
-                <img src="/images/GruppeFimages/img.png" height="200" width="300" border-radius=35px
-                     alt="cph-business academy"/>
+                <img class="column1-image" src="/images/GruppeFimages/img.png"  alt="cph-business academy"/>
                 <h2>COMING SOON!</h2>
 
             </div>
@@ -141,7 +154,7 @@
                 </form>
             </div>
 
-            <div class="column side">
+            <div class="column side right">
                 <h2>Some useful links </h2>
                 <p>National Institute of Public Health:</p>
                 <a href="https://www.sdu.dk/en/sif">SDU.DK</a>

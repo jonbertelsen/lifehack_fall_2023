@@ -1,112 +1,136 @@
-html{
-
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
+body {
     background: #5b768d;
-    display:flex;
-    overflow-x: hidden;
-    margin:0;
 }
 
-
-header{
-
-}
-
-.navigationbar{
-    background: #f6c6a8;
-    width:100vw;
-    height:10rem;
-    max-width: 100%;
-    min-width: 60%;
-    max-height: 100%;
-    min-height: 60%;
-    text-align: center;
-    justify-content: center;
+.page-container {
     display: flex;
-
+    justify-content: center;
 }
 
-hr{
-    margin:0;
+.page-content {
+    max-width: 800px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.navigationbar {
+    background: #f6c6a8;
+    width: 100vw;
+    display: flex;
+    margin-bottom: 30px;
     border: 0.5vh solid black;
-    color:black;
 }
 
-#logo{
-    max-width: 60vh;
-    display:inherit;
+.navigationbar-left {
+    display: flex;
+    justify-content: left;
 }
 
+.navigationbar-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#logo {
+    max-width: 80%;
+    height: auto;
+}
 
-
-
-#menuBtn{
-    width:6rem;
-    height:6rem;
+#menuBtn {
+    width: 7rem;
+    height: 6rem;
+    padding: 5px;
+    margin: 1rem;
     border: solid;
     border-width: 0.3rem;
     border-radius: 2rem;
     border-color: #46425e;
     background: #d17c7c;
-    display: inherit;
-    position:absolute;
-    top: 3%;
-    left:1%;
     font-size: 1.8rem;
     text-align: center;
-    align-self: center;
-    padding-top: 0.2rem;
+    align-self: flex-start;
     font-weight: bold;
-    color:white;
+    color: white;
     transition: all 0.3s ease 0s;
     box-shadow: 0px 8px 15px black;
 }
 
-#menuBtn:hover{
+#menuBtn:hover {
     background-color: #d48a8a;
     transform: translateY(-7px);
 }
 
-.container{
+.container {
+    width: 800px;
     display: flex;
-    flex-flow: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: space-evenly;
 }
 
-#box1{
+#box1 {
     background-color: #f6c6a8;
-    width:28rem;
-    height:28rem;
-    margin-right:4rem;
-    margin-top: 4rem;
-    border: #46425e 0.3rem solid;
-    border-radius: 0.3rem;
-}
-
-#box2{
-    background-color: #f6c6a8;
-    width:28rem;
-    height:28rem;
-    margin-top: 4rem;
-    border: #46425e 0.3rem solid;
-    border-radius: 0.3rem;
-}
-
-#box4{
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+    width: 350px;
     display: flex;
-
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    height: 28rem;
+    border: #46425e 0.3rem solid;
+    border-radius: 0.3rem;
 }
 
-#actionBtn{
-    width:11rem;
-    height:5rem;
+#box1 form input {
+    margin: 10px;
+}
+
+#box1 button {
+    margin: 20px;
+}
+
+#box2 {
+    background-color: #f6c6a8;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10px;
+    width: 350px;
+    height: 28rem;
+    border: #46425e 0.3rem solid;
+    border-radius: 0.3rem;
+}
+
+#box2 form input, #box2 button {
+    margin: 10px;
+}
+
+#box4 {
+    display: flex;
+    justify-content: center;
+}
+
+
+#actionBtn {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 11rem;
+    height: 5rem;
     border: solid;
     border-width: 0.3rem;
     border-radius: 2rem;
@@ -115,9 +139,8 @@ hr{
     display: inherit;
     font-size: 1.8rem;
     text-align: center;
-    align-self: center;
     font-weight: bold;
-    color:white;
+    color: white;
     font-style: italic;
     font-family: Tinos, serif;
     transition: all 0.3s ease 0s;
@@ -125,7 +148,7 @@ hr{
 
 }
 
-#actionBtn:hover{
+#actionBtn:hover {
     background-color: #d48a8a;
     transform: translateY(-7px);
 }
@@ -137,184 +160,161 @@ hr{
     margin-left: 3px;
 }
 
-.removeList{
+.removeList {
     display: flex;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+    gap: 7px;
+}
+
+.removeList fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    width: 100%;
+    padding: 7px;
+}
+
+.removeList button {
+    padding: 7px;
 }
 
 
-#editMovieTxt{
-    position: relative;
-    bottom:50px;
-    left:120px;
+#editMovieTxt {
+
 }
 
-#customMovieTxt{
-    position: relative;
-    bottom:50px;
-    left:110px;
+#customMovieTxt {
+
 }
 
 
-#genreWhitelistTxt{
-    position: relative;
-    bottom:3rem;
-    left:1rem;
+#genreWhitelistTxt {
+
 }
 
-#genreBlacklistTxt{
-    position: relative;
-    left:1rem;
-    bottom:5rem;
+#genreBlacklistTxt {
+
 }
 
-#genre{
-    position: relative;
-    left:1rem;
-    bottom:4rem;
-    width:22rem;
-    height:2rem;
+#genre {
+
 }
 
-#ignoregenres{
-    position: relative;
-    left:1rem;
-    bottom:6rem;
-    width:22rem;
-    height:2rem;
+#ignoregenres {
+
 }
 
-#addGenreBtn{
-    position: relative;
-    left:1.2rem;
-    bottom: 4rem;
-    width:4rem;
-    height:2rem;
+#addGenreBtn {
+
+
+    width: 4rem;
+    height: 2rem;
     border: solid;
     border-width: 0.3rem;
     border-radius: 2rem;
     border-color: #46425e;
     background: #d17c7c;
     font-size: 1rem;
-    text-align: center;
-    align-self: center;
-    padding-top: 0.2rem;
     font-weight: bold;
-    color:white;
+    color: white;
     transition: all 0.3s ease 0s;
     box-shadow: 0px 8px 15px black;
 
 }
 
-#addGenreBtn:hover{
+#addGenreBtn:hover {
     background-color: #d48a8a;
     transform: translateY(-7px);
 }
 
-#addGenreBlacklistBtn{
-    position: relative;
-    left:1.2rem;
-    bottom:6rem;
-    width:4rem;
-    height:2rem;
+#addGenreBlacklistBtn {
+    width: 4rem;
+    height: 2rem;
     border: solid;
     border-width: 0.3rem;
     border-radius: 2rem;
     border-color: #46425e;
     background: #d17c7c;
     font-size: 1rem;
-    text-align: center;
-    align-self: center;
-    padding-top: 0.2rem;
     font-weight: bold;
-    color:white;
+    color: white;
     transition: all 0.3s ease 0s;
     box-shadow: 0px 8px 15px black;
 
 }
 
-#addGenreBlacklistBtn:hover{
+#addGenreBlacklistBtn:hover {
     background-color: #d48a8a;
     transform: translateY(-7px);
 }
 
-#saveChangesBtn{
-    position: relative;
-    left:19rem;
-    bottom: 4rem;
-    width:8rem;
-    height:3rem;
+#saveChangesBtn {
+    margin-top: 20px;
+    width: 8rem;
+    height: 3rem;
     border: solid;
     border-width: 0.3rem;
     border-radius: 2rem;
     border-color: #46425e;
     background: #d17c7c;
     font-size: 1rem;
-    text-align: center;
-    align-self: center;
-    padding-bottom: 0;
     font-weight: bold;
-    color:white;
+    color: white;
     transition: all 0.3s ease 0s;
     box-shadow: 0px 8px 15px black;
 }
 
-#saveChangesBtn:hover{
+#saveChangesBtn:hover {
     background-color: #d48a8a;
     transform: translateY(-7px);
 }
 
 
 .randomSlider {
-    position: relative;
-    bottom: 4rem;
-    left: 1rem;
-    width: 21.5rem;
+    width: 70%;
 }
 
-
-
-p{
-    position: relative;
-    bottom: 7.5rem;
-    left: 9rem;
-}
-
-.custom-table{
+.custom-table {
     border: black solid 0.1rem;
+    border-collapse: collapse;
     margin: auto;
-    position: relative;
+    font-size: 1.5rem;
 }
 
-#chosenGenresTable{
+.custom-table td, .custom-table th {
+   padding: 5px;
+}
+
+#chosenGenresTable {
 
 }
 
-#ignoredGenresTable{
+#ignoredGenresTable {
 
 }
 
-td{
+td {
     border: black solid 0.1rem;
 }
 
 
-.resultBox{
+.resultBox {
     background-color: #f6c6a8;
+    display: flex;
     justify-content: center;
     align-content: center;
     align-self: center;
     width: 80vw;
-    height:50vh;
+    height: 50vh;
     border: #46425e solid 0.2rem;
-    display: flex;
-    margin: auto;
     margin-top: 4rem;
     margin-bottom: 1rem;
 }
 
-#retakeButton{
-    width:11rem;
-    height:5rem;
+#retakeButton {
+    width: 11rem;
+    height: 5rem;
     border: solid;
     border-width: 0.3rem;
     border-radius: 2rem;
@@ -325,16 +325,60 @@ td{
     text-align: center;
     align-self: center;
     font-weight: bold;
-    color:white;
+    color: white;
     font-style: italic;
     font-family: Tinos, serif;
     box-shadow: 0px 8px 15px black;
     transition: all 0.3s ease 0s;
 }
 
-#retakeButton:hover{
+#retakeButton:hover {
     background-color: #d48a8a;
     transform: translateY(-7px);
 }
 
+@media screen and (max-width: 800px) {
+
+    .container {
+        flex-direction: column;
+        max-width: 100vw;
+        align-items: center;
+    }
+
+    #box1 {
+        width: 90vw;
+    }
+
+    #box2 {
+        width: 90vw;
+    }
+
+    #box4 {
+        width: 20vw;
+    }
+
+    #menuBtn {
+        font-size: 1.3rem;
+        width: 6rem;
+        height: 4rem;
+        border-radius: 1rem;
+    }
+
+
+}
+
+@media screen and (max-width: 390px) {
+    .container {
+        flex-direction: column;
+        width: 390px;
+        align-items: center;
+    }
+
+    #menuBtn {
+        font-size: 1.0rem;
+        width: 4.5rem;
+        height: 3rem;
+        border-radius: 1rem;
+    }
+}
 

@@ -82,7 +82,7 @@
 
     <build>
 
-        <finalName>app</finalName>
+        <finalName>lifehack</finalName>
 
         <plugins>
             <plugin>

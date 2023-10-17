@@ -10,7 +10,7 @@
     <div id="page-content">
         <div th:replace="~{fragments :: header('Coffee-Mixer')}"></div>
 
-        <img src="../public/images/coffeemenuheader.jpg" height="158" width="707"
+        <img class="coffeeimage"  src="../public/images/coffeemenuheader.jpg"
              th:src="@{/images/coffeemenuheader.jpg}"/><br>
 
         <div class="flex-container">
@@ -55,15 +55,16 @@
                         <label for="None">None</label><br><br>
 
 
-                        <button type="submit" formaction="/coffeeprice">Get the price</button>
+                        <p><button type="submit" formaction="/coffeeprice">Get the price</button></p>
                         <br><br>
                     </form>
                 </div>
+
             </div>
+
         </div>
         <br>
-        <img src="../public/images/coffeefooter.jpg" height="158" width="707" th:src="@{/images/coffeefooter.jpg}"/>
-
+        <img class="coffeeimage"  src="../public/images/coffeefooter.jpg"  th:src="@{/images/coffeefooter.jpg}"/>
         <div th:replace="~{fragments :: footer}"></div>
     </div>
 </div>
