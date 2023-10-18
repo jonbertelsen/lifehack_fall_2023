@@ -43,11 +43,12 @@ header {
 .navigationbar-right {
     display: flex;
     justify-content: center;
+    width:100%;
     align-items: center;
 }
 
 #logo {
-    max-width: 80%;
+    max-width: 300px;
     height: auto;
 }
 
@@ -206,8 +207,6 @@ header {
 }
 
 #addGenreBtn {
-
-
     width: 4rem;
     height: 2rem;
     border: solid;
@@ -364,6 +363,11 @@ td {
         border-radius: 1rem;
     }
 
+    #logo {
+        max-width: 60%;
+        height: auto;
+    }
+
 
 }
 
@@ -379,6 +383,11 @@ td {
         width: 4.5rem;
         height: 3rem;
         border-radius: 1rem;
+    }
+
+    #logo {
+        max-width: 80%;
+        height: auto;
     }
 }
 
