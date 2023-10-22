@@ -11,8 +11,6 @@ import java.util.List;
 
 public class GroupBController
 {
-    private static List<String> genreList = new ArrayList<>();
-    private static List<String> ignoredGenreList = new ArrayList<>();
     public static List<String> genres;
     public static void getMovieResults(Context ctx, ConnectionPool connectionPool){
         List<String> genreList = ctx.sessionAttribute("genrelist");
@@ -25,30 +23,57 @@ public class GroupBController
     }
     public static void updateGenreList(Context ctx,ConnectionPool connectionPool){
         String genre = ctx.formParam("genre");
+        List<String> genreList = ctx.sessionAttribute("genrelist");
+        List<String> ignoredGenreList = ctx.sessionAttribute("ignoredgenrelist");
         if(genre !=null && ignoredGenreList != null && !ignoredGenreList.contains(genre) && !genreList.contains(genre)){
             genreList.add(genre);
+            ctx.sessionAttribute("genrelist", genreList);
         }
         renderScearhSite(ctx,connectionPool);
     }
+
+    public static void updateIgnoreList(Context ctx, ConnectionPool connectionPool) {
+        String ignoreGenre = ctx.formParam("ignoregenre");
+        List<String> genreList = ctx.sessionAttribute("genrelist");
+        List<String> ignoredGenreList = ctx.sessionAttribute("ignoredgenrelist");
+        if(ignoreGenre!=null && genreList != null && !ignoredGenreList.contains(ignoreGenre) && !genreList.contains(ignoreGenre)){
+            ignoredGenreList.add(ignoreGenre);
+            ctx.sessionAttribute("ignoredgenrelist", genreList);
+        }
+        renderScearhSite(ctx, connectionPool);
+    }
+    
     public static void renderChoosenGenre(Context ctx, ConnectionPool connectionPool) {
         renderScearhSite(ctx, connectionPool);
     }
+    
     public static void removeSearchParameters(Context ctx, ConnectionPool connectionPool) {
         String action = ctx.formParam("action");
         String genre = ctx.formParam("name");
         switch (action){
             case "removegenre" -> {
+                List<String> genreList = ctx.sessionAttribute("genrelist");
                 genreList.remove(genre);
+                ctx.sessionAttribute("genrelist", genreList);
             }
             case "removeignoregenre" -> {
+                List<String> genreList = ctx.sessionAttribute("ignoredgenrelist");
                 ignoredGenreList.remove(genre);
+                ctx.sessionAttribute("ignoredgenrelist", genreList);
             }
         }
         renderScearhSite(ctx, connectionPool);
     }
+    
     private static void renderScearhSite(Context ctx, ConnectionPool connectionPool){
-        ctx.sessionAttribute("genrelist", genreList);
-        ctx.sessionAttribute("ignoredgenrelist", ignoredGenreList);
+        //ctx.sessionAttribute("genrelist", genreList);
+        if(ctx.sessionAttribute("genrelist")==null){
+            ctx.sessionAttribute("genrelist", new ArrayList<GroupBMovie>());
+        }
+        //ctx.sessionAttribute("ignoredgenrelist", ignoredGenreList);
+        if(ctx.sessionAttribute("ignoredgenrelist")==null){
+            ctx.sessionAttribute("ignoredgenrelist", new ArrayList<GroupBMovie>());
+        }
         if(ctx.formParam("randomness")!=null){
             ctx.sessionAttribute("randomness", ctx.formParam("randomness"));
         }else if(ctx.sessionAttribute("randomness") == null) {
@@ -64,13 +89,5 @@ public class GroupBController
     public static void renderStart(Context ctx) {
         ctx.sessionAttribute("randomness", 5.0);
         ctx.render("/groupB.html");
-    }
-
-    public static void updateIgnoreList(Context ctx, ConnectionPool connectionPool) {
-        String ignoreGenre = ctx.formParam("ignoregenre");
-        if(ignoreGenre!=null && genreList != null && !ignoredGenreList.contains(ignoreGenre) && !genreList.contains(ignoreGenre)){
-            ignoredGenreList.add(ignoreGenre);
-        }
-        renderScearhSite(ctx, connectionPool);
     }
 }
