@@ -38,7 +38,7 @@ public class GroupBController
         List<String> ignoredGenreList = ctx.sessionAttribute("ignoredgenrelist");
         if(ignoreGenre!=null && genreList != null && !ignoredGenreList.contains(ignoreGenre) && !genreList.contains(ignoreGenre)){
             ignoredGenreList.add(ignoreGenre);
-            ctx.sessionAttribute("ignoredgenrelist", genreList);
+            ctx.sessionAttribute("ignoredgenrelist", ignoredGenreList);
         }
         renderScearhSite(ctx, connectionPool);
     }
