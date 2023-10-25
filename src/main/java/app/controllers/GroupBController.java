@@ -57,9 +57,9 @@ public class GroupBController
                 ctx.sessionAttribute("genrelist", genreList);
             }
             case "removeignoregenre" -> {
-                List<String> genreList = ctx.sessionAttribute("ignoredgenrelist");
+                List<String> ignoredGenreList = ctx.sessionAttribute("ignoredgenrelist");
                 ignoredGenreList.remove(genre);
-                ctx.sessionAttribute("ignoredgenrelist", genreList);
+                ctx.sessionAttribute("ignoredgenrelist", ignoredGenreList);
             }
         }
         renderScearhSite(ctx, connectionPool);
